@@ -29,7 +29,7 @@ const getTargetUrl = (value) => {
 const search = () => {
     const value = searchInput.value;
     const targetUrl = getTargetUrl(value);
-    // window.open(targetUrl, "_self");
+    window.open(targetUrl, "_self");
 };
 
 searchInput.onkeyup = (event) => event.key === "Enter" && search();
