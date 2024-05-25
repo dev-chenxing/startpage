@@ -8,7 +8,7 @@
   --color-primary-base: #5F8566;
   --color-primary-fg: #A4B9B3;
   --color-secondary-fg: #5F8566;
-  
+
   /** general */
   --font-family: 'Comic San';
   --font-size: 1.5;
@@ -24,6 +24,5 @@
   --space-largest: 3rem;
 
   /** others */
-  --picture-size: 300px;
   --group-count: 4;
 }
