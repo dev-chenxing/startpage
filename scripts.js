@@ -42,11 +42,18 @@ searchButton.onclick = search;
 const bookmarks = [
     {
         label: "~/general 🖋️",
-        bookmarks: [{ label: "xo.wtf", url: "https://xo.wtf/" }],
+        bookmarks: [
+            { label: "xo.wtf", url: "https://xo.wtf/" },
+            { label: "emojipedia", url: "https://emojipedia.org/" },
+        ],
     },
     {
         label: "~/dev 💻",
         bookmarks: [{ label: "github", url: "https://github.com/" }],
+    },
+    {
+        label: "~/work 💼",
+        bookmarks: [{ label: "天眼查", url: "https://www.tianyancha.com/" }],
     },
 ];
 
