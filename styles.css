@@ -17,36 +17,18 @@ select {
 a {
   color: inherit;
   text-decoration: none;
-  outline: none;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
 }
 
 body {
   min-height: 390px;
   min-width: 600px;
-  overflow: hidden;
-  font-family: var(--font-family), sans-serif;
-  font-weight: 500;
   font-size: calc(var(--font-size) * var(--space-medium));
   background-color: var(--color-bg-base);
 }
 
 .visually-hidden {
-  display: inline-block;
   position: absolute;
-  overflow: hidden;
   clip: rect(0px, 0px, 0px, 0px);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0px;
-  border: 0px none;
 }
 
 /**
@@ -65,15 +47,7 @@ body {
   min-width: 470px;
   min-height: 200px;
   color: var(--color-fg-surface);
-  background-color: var(--color-bg-surface);
   border: var(--space-smallest) solid var(--color-primary-base);
-}
-
-.surface > img {
-  height: var(--picture-size);
-  width: var(--picture-size);
-  object-fit: cover;
-  display: var(--display-image);
 }
 
 .surface > main {
@@ -83,48 +57,27 @@ body {
 }
 
 /**
- * Title
- **/
-
-.surface > main > h1 {
-  color: var(--color-primary-fg);
-  font-size: calc(var(--font-size) * var(--space-large));
-  font-weight: 500;
-  margin: 0 0 var(--space-large) 0;
-
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-}
-
-/**
  * Searchbar
  **/
 
 #searchbar {
   display: flex;
-  align-items: center;
   margin: 5px 0;
 }
 
 #searchbar > button {
   width: calc(var(--space-medium) * 2);
-  height: calc(var(--space-medium) * 2);
   color: var(--color-primary-fg);
-
   cursor: pointer;
   background-color: transparent;
   border: none;
-  outline: none;
-
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  outline: none;
 }
 
 #searchbar > button > .feather-search {
   width: 1.2rem;
-  height: 1.2rem;
 }
 
 #searchbar > button:hover {
@@ -133,14 +86,11 @@ body {
 
 #searchbar > button:focus-visible {
   color: var(--color-primary-base);
-  background: var(--color-bg-highlight);
   outline: var(--space-smallest) solid var(--color-fg-shade);
 }
 
 #searchbar > input {
-  height: calc(var(--space-medium) * 2);
   flex: 1;
-
   background-color: transparent;
   border: none;
   outline: none;
@@ -175,22 +125,10 @@ body {
 .bookmark-group > ul {
   margin: 0;
   padding: 0;
-  padding-right: var(--space-medium);
 }
 
 .bookmark-group > ul > li {
-  position: relative;
   list-style: none;
-}
-
-.bookmark-group > ul > li > a {
-  display: block;
-  padding: 2px 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: hidden;
-  width: 100%;
-  outline: none;
 }
 
 .bookmark-group > ul > li > a:hover::before,
@@ -212,6 +150,5 @@ a#yags-link {
 
 a#yags-link:hover,
 a#yags-link:focus-visible {
-  color: var(--color-fg-base);
   text-decoration: underline;
 }
