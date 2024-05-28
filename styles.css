@@ -23,6 +23,7 @@ body {
   min-height: 390px;
   min-width: 600px;
   font-size: calc(var(--font-size) * var(--space-medium));
+  font-family: 'Noto Sans';
   background-color: var(--color-bg-base);
 }
 
