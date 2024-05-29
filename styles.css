@@ -4,6 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 input,
@@ -23,7 +24,7 @@ body {
   min-height: 390px;
   min-width: 600px;
   font-size: calc(var(--font-size) * var(--space-medium));
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   background-color: var(--color-bg-base);
 }
 
@@ -51,8 +52,8 @@ body {
   border: var(--space-smallest) solid var(--color-primary-base);
 }
 
-.surface>main {
-  padding: var(--space-large);
+.surface > main {
+  padding: var(--space-medium);
   display: flex;
   flex-direction: column;
 }
@@ -66,7 +67,7 @@ body {
   margin: 5px 0;
 }
 
-#searchbar>button {
+#searchbar > button {
   width: calc(var(--space-medium) * 2);
   color: var(--color-primary-fg);
   cursor: pointer;
@@ -77,20 +78,20 @@ body {
   outline: none;
 }
 
-#searchbar>button>.feather-search {
+#searchbar > button > .feather-search {
   width: 1.2rem;
 }
 
-#searchbar>button:hover {
+#searchbar > button:hover {
   color: var(--color-primary-base);
 }
 
-#searchbar>button:focus-visible {
+#searchbar > button:focus-visible {
   color: var(--color-primary-base);
   outline: var(--space-smallest) solid var(--color-fg-shade);
 }
 
-#searchbar>input {
+#searchbar > input {
   flex: 1;
   background-color: transparent;
   border: none;
@@ -98,7 +99,7 @@ body {
   border-bottom: var(--space-smallest) solid var(--color-fg-base);
 }
 
-#searchbar>input:focus-visible {
+#searchbar > input:focus-visible {
   border-color: var(--color-primary-base);
 }
 
@@ -107,8 +108,9 @@ body {
  **/
 
 #bookmarks {
-  display: flex;
   margin: 10px 10px 0 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .bookmark-group {
@@ -116,25 +118,25 @@ body {
   min-width: 150px;
 }
 
-.bookmark-group>h2 {
+.bookmark-group > h2 {
   color: var(--color-secondary-fg);
   font-size: calc(var(--font-size) * var(--space-medium));
   font-weight: 500;
   margin: 0;
 }
 
-.bookmark-group>ul {
+.bookmark-group > ul {
   margin: 0;
   padding: 0;
 }
 
-.bookmark-group>ul>li {
+.bookmark-group > ul > li {
   position: relative;
   list-style: none;
 }
 
-.bookmark-group>ul>li>a:hover::before,
-.bookmark-group>ul>li>a:focus-visible::before {
+.bookmark-group > ul > li > a:hover::before,
+.bookmark-group > ul > li > a:focus-visible::before {
   content: ">";
   position: absolute;
   left: -1rem;
