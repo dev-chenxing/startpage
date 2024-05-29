@@ -59,6 +59,10 @@ const bookmarks = [
     label: "~/work 💼",
     bookmarks: [{ label: "天眼查", url: "https://www.tianyancha.com/" }],
   },
+  {
+    label: "~/reading 📚",
+    bookmarks: [{ label: "晉江", url: "https://www.jjwxc.net/bookbase.php?xx=3&sortType=1" }],
+  },
 ];
 
 const createGroupContainer = () => {
