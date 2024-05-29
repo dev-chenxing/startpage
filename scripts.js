@@ -45,6 +45,7 @@ const bookmarks = [
         bookmarks: [
             { label: "xo.wtf", url: "https://xo.wtf/" },
             { label: "emojipedia", url: "https://emojipedia.org/" },
+            { label: "百度", url: "https://www.baidu.com/" },
         ],
     },
     {
