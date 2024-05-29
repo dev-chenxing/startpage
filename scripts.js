@@ -57,11 +57,19 @@ const bookmarks = [
   },
   {
     label: "~/work 💼",
-    bookmarks: [{ label: "天眼查", url: "https://www.tianyancha.com/" }],
+    bookmarks: [
+      { label: "天眼查", url: "https://www.tianyancha.com/" },
+      { label: "金山文檔", url: "https://www.kdocs.cn/latest" },
+    ],
   },
   {
     label: "~/reading 📚",
-    bookmarks: [{ label: "晉江", url: "https://www.jjwxc.net/bookbase.php?xx=3&sortType=1" }],
+    bookmarks: [
+      {
+        label: "晉江",
+        url: "https://www.jjwxc.net/bookbase.php?xx=3&sortType=1",
+      },
+    ],
   },
 ];
 
