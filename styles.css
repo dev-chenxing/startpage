@@ -110,7 +110,7 @@ body {
 #bookmarks {
   margin: 10px 10px 0 10px;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
 .bookmark-group {
@@ -140,19 +140,4 @@ body {
   content: ">";
   position: absolute;
   left: -1rem;
-}
-
-/**
- * YAGS link
- **/
-a#yags-link {
-  color: var(--color-primary-fg);
-  position: fixed;
-  bottom: var(--space-small);
-  right: var(--space-small);
-}
-
-a#yags-link:hover,
-a#yags-link:focus-visible {
-  text-decoration: underline;
 }
