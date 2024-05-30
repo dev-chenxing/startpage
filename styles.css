@@ -6,6 +6,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 input,
@@ -25,6 +26,7 @@ body {
   min-height: 390px;
   min-width: 600px;
   font-size: calc(var(--font-size) * var(--space-medium));
+  font-family: "Noto Sans";
   background-color: var(--color-bg-base);
 }
 
@@ -53,7 +55,7 @@ body {
 }
 
 .surface > main {
-  padding: var(--space-large);
+  padding: var(--space-medium);
   display: flex;
   flex-direction: column;
 }
@@ -108,8 +110,9 @@ body {
  **/
 
 #bookmarks {
-  display: flex;
   margin: 10px 10px 0 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .bookmark-group {
