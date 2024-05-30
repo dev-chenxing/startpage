@@ -1,6 +1,6 @@
 @import url("./variables.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700;900&display=swap");
 
 *,
 *::before,
@@ -26,7 +26,7 @@ body {
   min-height: 390px;
   min-width: 600px;
   font-size: calc(var(--font-size) * var(--space-medium));
-  font-family: "Noto Sans";
+  font-family: --font-family;
   background-color: var(--color-bg-base);
 }
 
@@ -47,6 +47,7 @@ body {
   right: var(--space-largest);
   margin: auto;
   height: max-content;
+  width: fit-content;
   max-width: var(--surface-maxWidth);
   min-width: 470px;
   min-height: 200px;
@@ -112,7 +113,7 @@ body {
 #bookmarks {
   margin: 10px 10px 0 10px;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
 .bookmark-group {
@@ -147,19 +148,4 @@ body {
   content: ">";
   position: absolute;
   left: -1rem;
-}
-
-/**
- * YAGS link
- **/
-a#yags-link {
-  color: var(--color-primary-fg);
-  position: fixed;
-  bottom: var(--space-small);
-  right: var(--space-small);
-}
-
-a#yags-link:hover,
-a#yags-link:focus-visible {
-  text-decoration: underline;
 }
