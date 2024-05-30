@@ -28,6 +28,8 @@ body {
   font-size: calc(var(--font-size) * var(--space-medium));
   font-family: --font-family;
   background-color: var(--color-bg-base);
+  justify-items: center;
+  display: grid;
 }
 
 .visually-hidden {
@@ -43,13 +45,11 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: var(--space-largest);
-  right: var(--space-largest);
   margin: auto;
   height: max-content;
   width: fit-content;
   max-width: var(--surface-maxWidth);
-  min-width: 470px;
+  min-width: 450px;
   min-height: 200px;
   color: var(--color-fg-surface);
   border: var(--space-smallest) solid var(--color-primary-base);
@@ -111,7 +111,7 @@ body {
  **/
 
 #bookmarks {
-  margin: 10px 10px 0 10px;
+  margin: 10px 0 0 0;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
 }
@@ -119,6 +119,7 @@ body {
 .bookmark-group {
   width: calc(100% / var(--group-count));
   min-width: 150px;
+  margin: 0 5px;
 }
 
 .bookmark-group > h2 {
