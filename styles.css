@@ -1,5 +1,7 @@
 @import url("./variables.css");
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700;900&display=swap");
+
 *,
 *::before,
 *::after {
@@ -24,7 +26,7 @@ body {
   min-height: 390px;
   min-width: 600px;
   font-size: calc(var(--font-size) * var(--space-medium));
-  font-family: "Noto Sans";
+  font-family: --font-family;
   background-color: var(--color-bg-base);
 }
 
@@ -45,6 +47,7 @@ body {
   right: var(--space-largest);
   margin: auto;
   height: max-content;
+  width: fit-content;
   max-width: var(--surface-maxWidth);
   min-width: 470px;
   min-height: 200px;
@@ -133,6 +136,11 @@ body {
 .bookmark-group > ul > li {
   position: relative;
   list-style: none;
+}
+
+.bookmark-group > ul > li > a {
+  display: block;
+  padding: 2px 0;
 }
 
 .bookmark-group > ul > li > a:hover::before,
