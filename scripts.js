@@ -66,11 +66,15 @@ const bookmarks = [
     ],
   },
   {
-    label: "~/reading 📚",
+    label: "~/media 🕹️",
     bookmarks: [
       {
         label: "晉江",
         url: "https://www.jjwxc.net/bookbase.php?xx=3&sortType=1",
+      },
+      {
+        label: "bilibili",
+        url: "https://www.bilibili.com/",
       },
     ],
   },
