@@ -43,7 +43,7 @@ const bookmarks = [
   {
     label: "~/general 🖋️",
     bookmarks: [
-      { label: "xo.wtf", url: "https://xo.wtf/" },
+      { label: "刑搜", url: "http://chenxing.io:8080/" },
       { label: "emojipedia", url: "https://emojipedia.org/" },
       { label: "百度", url: "https://www.baidu.com/" },
       { label: "bing", url: "https://cn.bing.com/?ensearch=1" },
