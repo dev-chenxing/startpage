@@ -9,7 +9,7 @@ const searchInput = document.querySelector("#searchbar > input");
 const searchButton = document.querySelector("#searchbar > button");
 
 const lookup = { github: "https://github.com/" };
-const engineUrl = "https://xo.wtf/search?q={query}";
+const engineUrl = "http://chenxing.io:8080/search?q={query}";
 
 const isWebUrl = (value) => {
   try {
