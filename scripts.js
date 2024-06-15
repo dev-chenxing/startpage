@@ -33,6 +33,7 @@ const search = () => {
 };
 
 searchInput.onkeyup = (event) => event.key === "Enter" && search();
+searchInput.focus();
 searchButton.onclick = search;
 
 /**
@@ -47,7 +48,6 @@ const bookmarks = [
       { label: "emojipedia", url: "https://emojipedia.org/" },
       { label: "百度", url: "https://www.baidu.com/" },
       { label: "bing", url: "https://cn.bing.com/?ensearch=1" },
-      
     ],
   },
   {
