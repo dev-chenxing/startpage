@@ -76,6 +76,10 @@ const bookmarks = [
         label: "bilibili",
         url: "https://www.bilibili.com/",
       },
+      {
+        label: "微博",
+        url: "https://weibo.com/",
+      },
     ],
   },
 ];
