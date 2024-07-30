@@ -63,6 +63,7 @@ const bookmarks = [
     bookmarks: [
       { label: "天眼查", url: "https://www.tianyancha.com/" },
       { label: "金山文檔", url: "https://www.kdocs.cn/latest" },
+      { label: "126網易郵", url: "https://www.126.com/" },
     ],
   },
   {
