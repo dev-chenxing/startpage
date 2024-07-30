@@ -56,6 +56,7 @@ const bookmarks = [
       { label: "github", url: "https://github.com/" },
       { label: "AUR", url: "https://aur.archlinux.org/" },
       { label: "hostinger", url: "https://hpanel.hostinger.com/" },
+      { label: "npm", url: "https://www.npmjs.com/" },
     ],
   },
   {
