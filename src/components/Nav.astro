@@ -1,15 +1,25 @@
 ---
 import Clock from "./react/Clock";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <nav class="nav">
-  <ul class="nav-ul">
-    <li><Clock client:load/></li>
-    <li>
-      <a rel="prefetch" href="/">首</a>
-    </li>
-    <li>
-      <a rel="prefetch" href="/blog">博</a>
-    </li>
-  </ul>
+    <Clock client:load />
+    <ul class="nav-icons">
+        <li class={"nav-icon " + (pathname === "/" ? "active" : "")}>
+            <a
+                rel="prefetch"
+                href="/"
+                ></a
+            >
+        </li>
+        <li class={"nav-icon " + (pathname === "/blog" ? "active" : "")}>
+            <a
+                rel="prefetch"
+                href="/blog"
+                ></a
+            >
+        </li>
+    </ul>
 </nav>
