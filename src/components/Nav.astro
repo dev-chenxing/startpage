@@ -1,10 +1,10 @@
 ---
-import Clock from "./Clock.astro";
+import Clock from "./react/Clock";
 ---
 
 <nav class="nav">
   <ul class="nav-ul">
-    <li><Clock /></li>
+    <li><Clock client:load/></li>
     <li>
       <a rel="prefetch" href="/">首</a>
     </li>
