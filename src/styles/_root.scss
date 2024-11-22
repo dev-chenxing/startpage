@@ -1,23 +1,29 @@
-@use "./themes/BnW";
+@use "./themes/grey";
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font Mono";
+  src: url("/fonts/JetBrainsMono-Regular.ttf");
+}
 
 body {
   display: grid;
-  grid-template-areas: "nav" "main" "footer";
-  grid-auto-rows: auto 1fr auto;
-  gap: 1em;
+  grid-template-areas: "nav" "main";
+  grid-auto-rows: auto 1fr;
   place-items: center;
   padding: 0.5em;
+  gap: 0.5em;
 
   color: var(--color-text);
   background-color: var(--color-background);
-  font-family: system-ui, sans-serif;
+  font-family: "JetBrainsMono Nerd Font Mono", monospace;
+  font-size: 16px;
 }
 
 .nav {
   grid-area: nav;
   width: 100%;
   display: flex;
-  padding: 0.5em;
+  padding: 0.25em 0.5em;
   border: 1px solid var(--color-text);
   &-ul {
     display: grid;
@@ -38,12 +44,4 @@ body {
 
   font-size: 20px;
   line-height: 1.6;
-}
-
-.footer {
-  grid-area: footer;
-  padding: 0.5em;
-  width: 100%;
-  border: 1px solid var(--color-text);
-  text-align: center;
 }
