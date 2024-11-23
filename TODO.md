@@ -1,3 +1,6 @@
+1. Tailwind
+2. Tailwind Typography
+
 # Nav
 
 - readme Business Card
