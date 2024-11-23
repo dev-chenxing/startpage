@@ -4,8 +4,9 @@ import Clock from "./react/Clock";
 const pathname = new URL(Astro.request.url).pathname;
 
 const tabs = [
-    { href: "/", icon: " " },
-    { href: "/blog", icon: " " },
+    { href: "/", icon: " ", padding: "1px" },
+    { href: "/readme", icon: " ", padding: "3px" },
+    { href: "/mit-license", icon: " " },
 ];
 const bookmarks = [
     { href: "http://chenxing.io:8080/", text: "刑搜" },
@@ -25,6 +26,7 @@ const bookmarks = [
                     <a
                         rel="prefetch"
                         href={tab.href}
+                        style={{ paddingLeft: tab.padding }}
                     >
                         {tab.icon}
                     </a>
