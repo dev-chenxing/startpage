@@ -1,6 +1,6 @@
 # Nav
 
-- Date and time in the right
+- readme Business Card
 
 # Main
 

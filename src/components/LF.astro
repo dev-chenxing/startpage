@@ -17,7 +17,7 @@ const files: Entry[] = [
 let activeIndex = 0;
 ---
 
-<div>
+<div class="lf-cmd">
     <span class="lf-prompt">陈刑@chenxing.io</span>
     <span>~/{files[activeIndex].name}</span>
 </div>
@@ -40,6 +40,9 @@ let activeIndex = 0;
     <div class="lf-pane"></div>
 </div>
 <style>
+    .lf-cmd {
+        width: 100%;
+    }
     .lf-prompt {
         color: var(--color-accent);
     }
