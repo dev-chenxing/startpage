@@ -18,7 +18,7 @@ const bookmarks = [
 ---
 
 <nav class="nav">
-    <ul>
+    <ul class="nav-tabs">
         {
             tabs.map((tab) => (
                 <li class={"nav-icon " + (pathname === tab.href ? "active" : "")}>
@@ -32,7 +32,7 @@ const bookmarks = [
             ))
         }
     </ul>
-    <ul>
+    <ul class="nav-bookmarks">
         {
             bookmarks.map((bookmark, index) => {
                 return (
@@ -43,5 +43,7 @@ const bookmarks = [
             })
         }
     </ul>
-    <Clock client:load />
+    <div class="nav-clock">
+        <Clock client:load />
+    </div>
 </nav>

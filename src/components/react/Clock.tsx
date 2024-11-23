@@ -9,5 +9,5 @@ export default function Clock() {
         return () => clearInterval(intervalId)
     }, [])
 
-    return <span>{time.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit", hour12: false })}</span>
+    return <span> {time.toLocaleTimeString(undefined, { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit", hour12: true })}</span>
 }
