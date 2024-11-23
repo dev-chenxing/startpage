@@ -2,24 +2,46 @@
 import Clock from "./react/Clock";
 
 const pathname = new URL(Astro.request.url).pathname;
+
+const tabs = [
+    { href: "/", icon: " " },
+    { href: "/blog", icon: " " },
+];
+const bookmarks = [
+    { href: "http://chenxing.io:8080/", text: "刑搜" },
+    { href: "https://www.baidu.com/", text: "百度" },
+    { href: "https://github.com/", text: "github" },
+    { href: "https://hpanel.hostinger.com/", text: "hostinger" },
+    { href: "https://www.tianyancha.com/", text: "天眼查" },
+    { href: "https://www.126.com/", text: "126网易邮" },
+];
 ---
 
 <nav class="nav">
-    <Clock client:load />
-    <ul class="nav-icons">
-        <li class={"nav-icon " + (pathname === "/" ? "active" : "")}>
-            <a
-                rel="prefetch"
-                href="/"
-                ></a
-            >
-        </li>
-        <li class={"nav-icon " + (pathname === "/blog" ? "active" : "")}>
-            <a
-                rel="prefetch"
-                href="/blog"
-                ></a
-            >
-        </li>
+    <ul>
+        {
+            tabs.map((tab) => (
+                <li class={"nav-icon " + (pathname === tab.href ? "active" : "")}>
+                    <a
+                        rel="prefetch"
+                        href={tab.href}
+                    >
+                        {tab.icon}
+                    </a>
+                </li>
+            ))
+        }
     </ul>
+    <ul>
+        {
+            bookmarks.map((bookmark, index) => {
+                return (
+                    <li class="nav-bookmark">
+                        <a href={bookmark.href}>{bookmark.text}</a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+    <Clock client:load />
 </nav>

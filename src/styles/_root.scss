@@ -34,10 +34,19 @@ body {
     display: flex;
     border: 1px solid var(--color-text);
     padding: 0 0.5em;
-    gap: 1em;
-    &-icons {
+    // gap: 1em;
+    justify-content: space-between;
+    > ul {
         display: grid;
         grid-auto-flow: column;
+    }
+    &-bookmark:not(:first-child):before {
+        content: " | ";
+        float: left;
+        margin: {
+            left: 0.25em;
+            right: 0.25em;
+        }
     }
     &-icon {
         width: 28px;
