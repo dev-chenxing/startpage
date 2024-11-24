@@ -4,8 +4,8 @@ import Clock from "./react/Clock";
 const pathname = new URL(Astro.request.url).pathname;
 
 const tabs = [
-    { href: "/", icon: " ", padding: "1px" },
-    { href: "/readme", icon: " ", padding: "3px" },
+    { href: "/", icon: " ", padding: "pl-0.5" },
+    { href: "/readme", icon: " ", padding: "pl-1" },
     { href: "/mit-license", icon: " " },
 ];
 const bookmarks = [
@@ -18,15 +18,15 @@ const bookmarks = [
 ];
 ---
 
-<nav class="nav">
-    <ul class="nav-tabs">
+<nav class="flex border px-2 lg:w-full lg:grid lg:grid-cols-[1fr_auto_1fr]">
+    <ul class="hidden lg:flex">
         {
             tabs.map((tab) => (
-                <li class={"nav-icon " + (pathname === tab.href ? "active" : "")}>
+                <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-secondary text-primary" : "")}>
                     <a
+                        class={"w-[18px] " + tab.padding}
                         rel="prefetch"
                         href={tab.href}
-                        style={{ paddingLeft: tab.padding }}
                     >
                         {tab.icon}
                     </a>
@@ -34,18 +34,18 @@ const bookmarks = [
             ))
         }
     </ul>
-    <ul class="nav-bookmarks">
+    <ul class="hidden lg:flex">
         {
             bookmarks.map((bookmark, index) => {
                 return (
-                    <li class="nav-bookmark">
+                    <li class="!first:before:content-['_|_'] !first:before:float-left !first:before:mx-1">
                         <a href={bookmark.href}>{bookmark.text}</a>
                     </li>
                 );
             })
         }
     </ul>
-    <div class="nav-clock">
+    <div class="text-end">
         <Clock client:load />
     </div>
 </nav>
