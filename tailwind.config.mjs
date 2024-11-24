@@ -9,11 +9,32 @@ export default {
             secondary: "#fdfdfd",
             accent: "#a5a5a5",
         },
-        extend: {},
+        extend: {
+            typography: ({ theme }) => ({
+                grey: {
+                    css: {
+                        "--tw-prose-body": theme("colors.secondary"),
+                        "--tw-prose-headings": theme("colors.secondary"),
+                        "--tw-prose-links": theme("colors.secondary"),
+                        // "--tw-prose-bold": theme("colors.dracula-purple.DEFAULT"),
+                        // "--tw-prose-counters": theme("colors.dracula-pink.DEFAULT"),
+                        // "--tw-prose-bullets": theme("colors.dracula-pink.DEFAULT"),
+                        // "--tw-prose-hr": theme("colors.dracula-pink.DEFAULT"),
+                        // "--tw-prose-quotes": theme("colors.dracula-light.DEFAULT"),
+                        // "--tw-prose-quote-borders": theme("colors.dracula-pink.DEFAULT"),
+                        // "--tw-prose-captions": theme("colors.dracula-pink.DEFAULT"),
+                        // "--tw-prose-code": theme("colors.dracula-purple.DEFAULT"),
+                        // "--tw-prose-th-borders": theme("colors.dracula-dark.DEFAULT"),
+                        // "--tw-prose-td-borders": theme("colors.dracula-dark.DEFAULT"),
+                    },
+                },
+            }),
+        },
     },
     plugins: [
         plugin(function ({ addVariant }) {
             addVariant("!first", "&:not(:first-child)");
         }),
+        require("@tailwindcss/typography"),
     ],
 };

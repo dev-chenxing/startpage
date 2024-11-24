@@ -1,14 +1,10 @@
 ---
 import Layout from "./Layout.astro";
-
-import "../styles/_mdx.scss";
-
 const { frontmatter } = Astro.props;
 ---
 
-
 <Layout title={frontmatter.title}>
-    <article class="mdx">
+    <article class="prose prose-grey prose-sm prose-p:leading-normal prose-h2:text-accent prose-headings:mt-6">
         <slot />
     </article>
 </Layout>
