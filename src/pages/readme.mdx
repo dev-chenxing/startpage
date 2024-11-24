@@ -2,15 +2,15 @@
 layout: "../layouts/MdxLayout.astro"
 title: About | New tab
 ---
-import BusinessCard from "../components/react/BusinessCard";
+import InfoFetcher from "../components/react/InfoFetcher";
 
-<BusinessCard/>
+<InfoFetcher client:visible/>
 
 Greetings! Welcome to my startpage.
 
 ## About the Author
 
-Hello, I'm 陈刑 aka chen.xing. I'm a 打工仔 who loves programming.
+Hello, i'm <span class="text-yellow">陈刑</span> aka <span class="text-green">chen.xing</span>. I'm a 打工仔 who loves programming.
 
 ## About the Startpage
 
@@ -24,4 +24,4 @@ The website is mainly built with [Astro](https://astro.build/) with [React](http
 
 ---
 
-Built with  Astro, <span style="color: cyan"> </span> React and <span style="color: orange"></span> Svelte by [陈刑](https://github.com/dev-chenxing/startpage)
+Built with  Astro, <span class="text-cyan"> </span> React and <span class="text-red"></span> Svelte by [陈刑](https://github.com/dev-chenxing/startpage)

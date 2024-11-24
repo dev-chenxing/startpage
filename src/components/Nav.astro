@@ -22,7 +22,7 @@ const bookmarks = [
     <ul class="hidden lg:flex">
         {
             tabs.map((tab) => (
-                <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-secondary text-primary" : "")}>
+                <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-white text-black" : "")}>
                     <a
                         class={"w-[18px] " + tab.padding}
                         rel="prefetch"
@@ -46,6 +46,6 @@ const bookmarks = [
         }
     </ul>
     <div class="text-end">
-        <Clock client:load />
+        <Clock client:visible />
     </div>
 </nav>
