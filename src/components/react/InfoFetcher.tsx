@@ -1,17 +1,11 @@
 import { motion } from "motion/react"
+import Pokemon from "./Pokemon.tsx"
 
-const avatar = `\
-░░░░░░░░░░░░░░░░░
-░░░░░▀▄░░░▄▀░░░░░ 
-░░░░▄█▀███▀█▄░░░░
-░░░█▀███████▀█░░░
-░░░█░█▀▀▀▀▀█░█░░░
-░░░░░░▀▀░▀▀░░░░░░
-░░░░░░░░░░░░░░░░░`
 
 const infoList = [
     { name: "User", value: "陈刑" },
-    { name: "Code", value: "56% vim, 16% lua, 6% h" }
+    { name: "Description", value: "56% vim, 16% lua, 6% h" },
+    // { name: "Description", value: "56% vim, 16% lua, 6% h" }
 ]
 
 const socials = [
@@ -28,15 +22,13 @@ const socials = [
 export default function InfoFetcher() {
     return (
         <motion.div
-            className="border text-white flex p-2"
+            className="border text-white flex p-2 w-max my-4"
             initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
             layout
         >
-            <pre className="my-0 leading-tight">
-                {avatar}
-            </pre>
-            <div>
+            <Pokemon />
+            <div className="mx-2 my-4">
                 {infoList.map((info) => {
                     return <p><span className="text-blue">{info.name}: </span>{info.value}</p>
                 })}
