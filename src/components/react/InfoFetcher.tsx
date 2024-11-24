@@ -29,8 +29,8 @@ export default function InfoFetcher() {
         >
             <Pokemon />
             <div className="mx-2 my-4">
-                {infoList.map((info) => {
-                    return <p><span className="text-blue">{info.name}: </span>{info.value}</p>
+                {infoList.map((info, index) => {
+                    return <p key={index}><span className="text-blue">{info.name}: </span>{info.value}</p>
                 })}
                 <p className="flex gap-2 text-lg">{socials.map((social, index) => {
                     return (

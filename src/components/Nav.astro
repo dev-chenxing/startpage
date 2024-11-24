@@ -36,7 +36,7 @@ const bookmarks = [
     </ul>
     <ul class="hidden lg:flex">
         {
-            bookmarks.map((bookmark, index) => {
+            bookmarks.map((bookmark) => {
                 return (
                     <li class="!first:before:content-['_|_'] !first:before:float-left !first:before:mx-1">
                         <a href={bookmark.href}>{bookmark.text}</a>
