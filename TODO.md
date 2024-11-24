@@ -1,10 +1,10 @@
-1. Tailwind Typography
-
 # Nav
 
 - readme Business Card: https://blocklune.cc/en/about/
 
 # Main
+
+Svelte LF components
 
 - Github Stars
 - npmjs.com
