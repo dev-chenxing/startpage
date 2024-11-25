@@ -1,8 +1,6 @@
 # Nav
 
-- readme Motion Business Card: https://blocklune.cc/en/about/
-- top to bottom typing animation
-- git code language analytics
+- git code language analytics (api limit)
 
 # Main
 

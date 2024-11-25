@@ -17,9 +17,9 @@ export default function InfoFetcher({ username, name }: { username: string; name
   // console.log(githubUserData);
   // });
   const infoList = [
-    { name: "Trainer", value: name },
-    { name: "Pokémon", value: pokemon.toUpperCase() },
-    { name: "Abilities", value: githubUserData }
+    { name: "󰮂 Trainer", value: name },
+    { name: "󰐝 Pokémon", value: pokemon.toUpperCase() },
+    { name: " Abilities", value: githubUserData }
   ];
 
   const socials = [
@@ -33,7 +33,7 @@ export default function InfoFetcher({ username, name }: { username: string; name
     { text: " ", href: "https://github.com/dev-chenxing", color: "text-grey" }
   ];
   return (
-    <motion.div className="border text-white flex p-2 w-max my-4" initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} layout>
+    <motion.div className="border-2 border text-white flex p-2 w-max my-4" initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} layout>
       <img src={`/pokemons/${pokemon}.png`} alt={pokemon} className="h-24" style={{ imageRendering: "pixelated" }} />
       <div className="ml-2 m-4">
         {infoList.map((info, index) => {
