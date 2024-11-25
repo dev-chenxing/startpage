@@ -1,11 +1,11 @@
 import json
+import os
+from pathlib import Path
 
 pokemons = []
 
-with open("pokemon.json", "r") as file:
-    pokemon_json = json.load(file)
-    for pokemon in pokemon_json:
-        pokemons.append(pokemon["name"])
+for entry in os.scandir("../../../public/pokemons"):
+    pokemons.append(Path(entry.name).stem)
 
 
-json.dump(pokemons, open("myfile.json", "w"))
+json.dump(pokemons, open("./pokemon.json", "w"))
