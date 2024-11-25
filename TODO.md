@@ -1,10 +1,11 @@
 # Nav
 
-- git code language analytics (api limit)
+- color bar for languages
+- no. for pokemons
 
 # Main
 
-Svelte LF components
+- Svelte LF components
 
 - Github Stars
 - npmjs.com
