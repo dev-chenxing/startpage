@@ -6,20 +6,15 @@ function choice(arr: Array<string>) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function InfoFetcher({ username, name }: { username: string; name: string }) {
+export default function PokeFetcher({ name, languages }: { name: string, languages: string }) {
   const [pokemon, setPokemon] = useState("pikachu");
   useEffect(() => {
     setPokemon(choice(pokemons));
   }, []);
-  const [githubUserData, setGithubUserData] = useState("56% vim, 16% lua, 6% h");
-  // fetchGithubUserData(username).then(data => {
-  // setGithubUserData(data);
-  // console.log(githubUserData);
-  // });
   const infoList = [
     { name: "󰮂 Trainer", value: name },
     { name: "󰐝 Pokémon", value: pokemon.toUpperCase() },
-    { name: " Abilities", value: githubUserData }
+    { name: " Abilities", value: languages },
   ];
 
   const socials = [
