@@ -6,14 +6,14 @@ export default {
     theme: {
         colors: {
             black: "#000000",
-            red: "#FF3E00",
-            green: "#00F58F",
-            yellow: "#FFC65C",
-            blue: "#008BD7",
-            magenta: "#DA70D6",
-            cyan: "#58C4DC",
+            red: "#E64A29",
+            green: "#5AC55A",
+            yellow: "#FFCE29",
+            blue: "#5AADFF",
+            magenta: "#C583CD",
+            cyan: "#63C5C5",
             white: "#fdfdfd",
-            grey: "#a5a5a5",
+            grey: "#C5C5C5",
         },
         extend: {
             typography: ({ theme }) => ({
