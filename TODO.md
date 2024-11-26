@@ -1,6 +1,5 @@
 # Nav
 
-- color bar for languages
 - no. for pokemons
 
 # Main
