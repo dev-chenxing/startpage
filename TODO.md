@@ -1,10 +1,8 @@
-# Nav
-
-- no. for pokemons
-
 # Main
 
 - Svelte LF components
+- Typewriter effect
+- Markdown Syntax Highlighting
 
 - Github Stars
 - npmjs.com
