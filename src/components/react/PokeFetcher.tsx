@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import pokemons from "../../content/pokemons/pokemon.json";
+import languagesColor from "../../content/languages/languages.json"
 import { useEffect, useState } from "react";
 
 type LanguagesData = Record<string, number>;
@@ -43,9 +44,10 @@ export default function PokeFetcher({ name, languages }: { name: string; languag
         <p>
           <span className="text-blue"> Abilities: </span>
           {Object.keys(languages).map(lang => {
+            const language_color = languagesColor[lang as keyof typeof languagesColor]
             return (
               <span key={lang} className="mx-1 inline-block">
-                 {lang} ({languages[lang]}%)
+                <span style={{ color: language_color }}> </span> {lang} ({languages[lang]}%)
               </span>
             );
           })}
