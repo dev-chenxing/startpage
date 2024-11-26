@@ -1,6 +1,5 @@
 # Main
 
-- Typewriter effect
 - Markdown Syntax Highlighting
 
 - Github Stars

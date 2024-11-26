@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import pokemons from "../../content/pokemons/pokemon.json";
 import languagesColor from "../../content/languages/languages.json";
 import { useEffect, useState } from "react";
+import TypeIt from "typeit-react"
 
 type LanguagesData = Record<string, number>;
 
@@ -38,10 +39,7 @@ export default function PokeFetcher({ name, languages }: { name: string; languag
     <motion.div className="border-2 border text-white flex p-2 my-4" initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} layout>
       <img src={`/pokemons/${pokemon}.png`} alt={pokemon} className="h-24" style={{ imageRendering: "pixelated" }} />
       <div className="ml-2 mr-8 my-2">
-        <p>
-          <span className="text-blue">󰮂 Trainer: </span>
-          {name}
-        </p>
+        <TypeIt options={{ breakLines: false }}><span className="text-blue">󰮂 Trainer: </span>{name}</TypeIt>
         <p>
           <span className="text-blue">󰐝 Pokémon: </span>
           <span className="text-black bg-white px-1 mr-2">No.{getPokemonIndex(pokemon)}</span>

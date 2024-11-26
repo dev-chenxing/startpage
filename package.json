@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
-    "sass": "^1.81.0"
+    "sass": "^1.81.0",
+    "typeit-react": "^2.7.7"
   }
 }
