@@ -1,6 +1,5 @@
 # Main
 
-- Svelte LF components
 - Typewriter effect
 - Markdown Syntax Highlighting
 

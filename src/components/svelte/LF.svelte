@@ -2,6 +2,7 @@
     type Entry = {
         name: string;
         icon?: string;
+        content?: Array<Entry>;
     };
 
     const files: Entry[] = [
@@ -32,6 +33,15 @@
             </ul>
         {/each}
     </div>
-    <div class="p-2 border-x"></div>
+    <div class="p-2 border-x">
+        {#if !files[activeIndex].content}
+            <ul>
+                <li class={"px-2 leading-snug text-red "}>
+                    <span class="text-sm mr-0.5"></span>
+                    EMPTY
+                </li>
+            </ul>
+        {/if}
+    </div>
     <div class="p-2"></div>
 </div>
