@@ -2,19 +2,20 @@ import { motion } from "motion/react";
 import pokemons from "../../content/pokemons/pokemon.json";
 import { useEffect, useState } from "react";
 
+type LanguagesData = Record<string, number>;
+
 function choice(arr: Array<string>) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function PokeFetcher({ name, languages }: { name: string, languages: string }) {
+export default function PokeFetcher({ name, languages }: { name: string; languages: LanguagesData }) {
   const [pokemon, setPokemon] = useState("pikachu");
   useEffect(() => {
     setPokemon(choice(pokemons));
   }, []);
   const infoList = [
     { name: "󰮂 Trainer", value: name },
-    { name: "󰐝 Pokémon", value: pokemon.toUpperCase() },
-    { name: " Abilities", value: languages },
+    { name: "󰐝 Pokémon", value: pokemon.toUpperCase() }
   ];
 
   const socials = [
@@ -28,7 +29,7 @@ export default function PokeFetcher({ name, languages }: { name: string, languag
     { text: " ", href: "https://github.com/dev-chenxing", color: "text-grey" }
   ];
   return (
-    <motion.div className="border-2 border text-white flex p-2 w-max my-4" initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} layout>
+    <motion.div className="border-2 border text-white flex p-2 my-4" initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} layout>
       <img src={`/pokemons/${pokemon}.png`} alt={pokemon} className="h-24" style={{ imageRendering: "pixelated" }} />
       <div className="ml-2 m-4">
         {infoList.map((info, index) => {
@@ -39,6 +40,16 @@ export default function PokeFetcher({ name, languages }: { name: string, languag
             </p>
           );
         })}
+        <p>
+          <span className="text-blue"> Abilities: </span>
+          {Object.keys(languages).map(lang => {
+            return (
+              <span key={lang} className="mx-1 inline-block">
+                 {lang} ({languages[lang]}%)
+              </span>
+            );
+          })}
+        </p>
         <p className="flex gap-2 text-lg">
           {socials.map((social, index) => {
             return (
