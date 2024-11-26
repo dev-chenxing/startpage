@@ -1,4 +1,5 @@
 import yaml
+import json
 
 colors = {}
 
@@ -9,4 +10,4 @@ with open('languages.yml', 'r') as file:
             colors[language] = languages[language]["color"]
 
 
-yaml.dump(colors, open('languages_color.yaml', 'w'))
+json.dump(colors, open('languages.json', 'w'))
