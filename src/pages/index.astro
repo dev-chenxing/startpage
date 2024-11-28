@@ -1,8 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LF from "../components/svelte/LF.svelte";
+
+const files = [
+    // Alphabetical order
+    // { name: "Blog", icon: " " },
+    // { name: "Books", icon: " " },
+    { name: "dev.to", icon: " " },
+    // { name: "Downloads", icon: " " },
+    { name: "github.com", icon: " " },
+    // { name: "Music", icon: " " },
+    { name: "nerdfonts.com", icon: " " },
+    // { name: "Pictures", icon: " " },
+    // { name: "Repos", icon: " " },
+    // { name: "Videos", icon: " " },
+];
 ---
 
 <Layout title="New tab">
-    <LF />
+    <LF
+        prompt="陈刑@chenxing.io"
+        files={files}
+        client:only="svelte"
+    />
 </Layout>
