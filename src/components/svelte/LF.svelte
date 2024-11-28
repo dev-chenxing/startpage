@@ -1,6 +1,5 @@
 <script lang="ts">
     import { mod } from "./utils.ts";
-
     interface Props {
         prompt: string;
         files: Entry[];
@@ -15,6 +14,8 @@
             activeIndex = mod(activeIndex + 1, files.length);
         } else if (e.key == "ArrowUp") {
             activeIndex = mod(activeIndex - 1, files.length);
+        } else if (e.key == "ArrowRight") {
+            if (files[activeIndex].href) window.open(files[activeIndex].href, "_self");
         }
     }
 </script>
@@ -38,10 +39,11 @@
     </div>
     <div class="p-2 border-x">
         <ul>
-            {#if files[activeIndex].content == {}}
-                <li class={"px-2 leading-snug text-red "}>
-                    <span class="text-sm mr-0.5"></span>
-                    EMPTY
+            {#if files[activeIndex].content && files[activeIndex].content.length === 0}
+                <li class={"px-2 leading-snug text-red"}>EMPTY</li>
+            {:else if files[activeIndex].href}
+                <li class={"px-2 leading-snug"}>
+                    Press arrow right key 󰜵 to open <span class="underline">{files[activeIndex].href}</span>
                 </li>
             {/if}
         </ul>
