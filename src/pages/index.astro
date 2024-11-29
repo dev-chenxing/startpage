@@ -3,25 +3,22 @@ import Layout from "../layouts/Layout.astro";
 import LF from "../components/svelte/LF.svelte";
 
 const files: Entry[] = [
-    // Alphabetical order
-    { name: "Blog", icon: " ", content: [] },
-    // { name: "Books", icon: " " },
-    { name: "dev.to", icon: " ", href: "https://dev.to/" },
-    // { name: "Downloads", icon: " " },
-    { name: "github.com", icon: " ", href: "https://github.com/" },
-    // { name: "Music", icon: " " },
-    { name: "nerdfonts.com", icon: " ", href: "https://www.nerdfonts.com/cheat-sheet" },
-    // { name: "Pictures", icon: " " },
-    // { name: "Repos", icon: " " },
-    { name: "searxng", icon: " ", href: "http://chenxing.io:8080/" },
-    // { name: "Videos", icon: " " },
+  // Alphabetical order
+  { name: "Blog", icon: " ", content: [] },
+  // { name: "Books", icon: " " },
+  { name: "dev.to", icon: " ", href: "https://dev.to/" },
+  // { name: "Downloads", icon: " " },
+  { name: "github.com", icon: " ", href: "https://github.com/" },
+  // { name: "Music", icon: " " },
+  { name: "nerdfonts.com", icon: " ", href: "https://www.nerdfonts.com/cheat-sheet" },
+  // { name: "Pictures", icon: " " },
+  // { name: "Repos", icon: " " },
+  { name: "searxng", icon: " ", href: "http://chenxing.io:8080/", dialog: true, description: "search" },
+  { name: "shadcn/ui", href: "https://ui.shadcn.com/docs/components/accordion" }
+  // { name: "Videos", icon: " " },
 ];
 ---
 
 <Layout title="New tab">
-    <LF
-        prompt="陈刑@chenxing.io"
-        files={files}
-        client:only="svelte"
-    />
+  <LF prompt="陈刑@chenxing.io" files={files} client:only="svelte" />
 </Layout>

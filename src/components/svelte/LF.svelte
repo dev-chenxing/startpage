@@ -14,7 +14,10 @@
     } else if (e.key == "ArrowUp") {
       activeIndex = mod(activeIndex - 1, files.length);
     } else if (e.key == "ArrowRight") {
-      if (files[activeIndex].href) {
+      if (files[activeIndex].dialog) {
+        const dialog = document.querySelector("dialog");
+        if (dialog) dialog.showModal();
+      } else if (files[activeIndex].href) {
         if (e.ctrlKey) window.open(files[activeIndex].href, "_blank");
         else window.open(files[activeIndex].href, "_self");
       }
@@ -31,9 +34,9 @@
 <div class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border">
   <div class="p-2 lf-pane-left">
     <ul>
-      {#each files as { name, icon }, index}
+      {#each files as { name, icon, href, content }, index}
         <li class={"px-2 leading-snug " + (index === activeIndex ? "bg-white text-black" : "")}>
-          <span class="text-sm mr-0.5">{icon || " "}</span>
+          <span class="text-sm mr-0.5">{icon || (href && " ") || (content && " ") || " "}</span>
           {name}
         </li>
       {/each}
@@ -43,6 +46,8 @@
     <ul>
       {#if files[activeIndex].content?.length === 0}
         <li class={"px-2 leading-snug text-red"}>EMPTY</li>
+      {:else if files[activeIndex].dialog}
+        <li class={"px-2 leading-snug"}>Press 󰜵 key to {files[activeIndex].description}</li>
       {:else if files[activeIndex].href}
         <li class={"px-2 leading-snug"}>
           Press 󰜵 key to follow link <a class="underline" href={files[activeIndex].href}>{files[activeIndex].href}</a>
@@ -52,3 +57,13 @@
   </div>
   <div class="p-2"></div>
 </div>
+<dialog>
+  <form>
+    <p>
+      <label>
+        {files[activeIndex].name}
+        <input />
+      </label>
+    </p>
+  </form>
+</dialog>
