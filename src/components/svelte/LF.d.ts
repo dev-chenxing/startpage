@@ -6,4 +6,5 @@ type Entry = {
   dialog?: boolean;
   description?: string;
   shortcut?: string;
+  search?: string;
 };

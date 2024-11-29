@@ -13,9 +13,18 @@
   });
 
   let activeIndex = $state(0);
+  let isCtrlDown = $state(false);
+
+  function openLink(href: string | undefined) {
+    if (isCtrlDown) window.open(href, "_blank");
+    else window.open(href, "_self");
+  }
 
   function onkeydown(e: KeyboardEvent) {
+    if (e.ctrlKey) isCtrlDown = true;
+
     if (document.activeElement?.tagName == "INPUT") return;
+
     if (e.key == "ArrowDown") {
       activeIndex = mod(activeIndex + 1, files.length);
     } else if (e.key == "ArrowUp") {
@@ -25,28 +34,47 @@
         const dialog = document.querySelector("dialog");
         if (dialog) dialog.showModal();
       } else if (files[activeIndex].href) {
-        if (e.ctrlKey) window.open(files[activeIndex].href, "_blank");
-        else window.open(files[activeIndex].href, "_self");
+        openLink(files[activeIndex].href);
       }
     } else if (e.key in shortcuts) {
       let index = shortcuts[e.key].indexOf(activeIndex);
       activeIndex = shortcuts[e.key][mod(index + 1, shortcuts[e.key].length)];
     }
   }
+  function onkeyup(e: KeyboardEvent) {
+    switch (e.key) {
+      case "Control":
+        isCtrlDown = false;
+        e.preventDefault();
+        break;
+    }
+  }
+
+  let query = $state("");
+  function onSubmit() {
+    openLink(`${files[activeIndex].search}${query}`);
+  }
 </script>
 
-<svelte:window {onkeydown} />
+<svelte:window {onkeydown} {onkeyup} />
 
 <div class="w-full">
   <span class="text-grey">{prompt}</span>
   <span>~/{files[activeIndex].name}</span>
 </div>
-<div class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border">
+<div
+  class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border"
+>
   <div class="p-2 lf-pane-left">
     <ul>
       {#each files as { name, icon, href, content, shortcut }, index}
-        <li class={"px-2 leading-snug " + (index === activeIndex ? "bg-white text-black" : "")}>
-          <span class="text-sm mr-0.5">{icon || (href && " ") || (content && " ") || " "}</span>
+        <li
+          class={"px-2 leading-snug " +
+            (index === activeIndex ? "bg-white text-black" : "")}
+        >
+          <span class="text-sm mr-0.5"
+            >{icon || (href && " ") || (content && " ") || " "}</span
+          >
           {name}
         </li>
       {/each}
@@ -57,10 +85,15 @@
       {#if files[activeIndex].content?.length === 0}
         <li class={"px-2 leading-snug text-red"}>EMPTY</li>
       {:else if files[activeIndex].dialog}
-        <li class={"px-2 leading-snug"}>Press 󰜵 key to {files[activeIndex].description}</li>
+        <li class={"px-2 leading-snug"}>
+          Press 󰜵 key to {files[activeIndex].description}
+        </li>
       {:else if files[activeIndex].href}
         <li class={"px-2 leading-snug"}>
-          Press 󰜵 key to follow link <a class="underline" href={files[activeIndex].href}>{files[activeIndex].href}</a>
+          Press 󰜵 key to follow link <a
+            class="underline"
+            href={files[activeIndex].href}>{files[activeIndex].href}</a
+          >
         </li>
       {/if}
     </ul>
@@ -68,12 +101,20 @@
   <div class="p-2"></div>
 </div>
 <dialog class="bg-black text-white border">
-  <form class="py-1 px-2">
+  <form class="py-1 px-2" action="javascript:void(0);" autocomplete="off">
     <p>
-      <label>
-        {files[activeIndex].name}
-        <input class="bg-black text-white" />
-      </label>
+      <label for="input"> {files[activeIndex].name}</label>
+      <input
+        id="input"
+        class="bg-black text-white ml-1 w-96"
+        bind:value={query}
+      />
+      <input
+        type="submit"
+        value="󰘌"
+        class="cursor-pointer w-6"
+        onclick={onSubmit}
+      />
     </p>
   </form>
 </dialog>
