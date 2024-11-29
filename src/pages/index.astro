@@ -5,14 +5,37 @@ import LF from "../components/svelte/LF.svelte";
 const files: Entry[] = [
   // Alphabetical order
   { name: "126网易免费邮", icon: " ", href: "https://mail.126.com/" },
-  { name: "archlinux.org", icon: "󰣇 ", href: "https://archlinux.org/packages/" },
-  { name: "百度", shortcut: "b", icon: " ", href: "https://www.baidu.com/" },
+  {
+    name: "archlinux.org",
+    icon: "󰣇 ",
+    search: "https://archlinux.org/packages/?q=",
+    description: "search packages",
+    dialog: true,
+  },
+  {
+    name: "百度",
+    shortcut: "b",
+    icon: " ",
+    dialog: true,
+    search: "https://www.baidu.com/s?wd=",
+    description: "百度一下",
+  },
   //   { name: "blog", icon: " ", content: [] },
   // { name: "Books", icon: " " },
-  { name: "codepen.io", icon: " ", href: "https://codepen.io/" },
+  {
+    name: "codepen.io",
+    icon: " ",
+    search: "https://codepen.io/search/pens?q=",
+    description: "search pens",
+    dialog: true,
+  },
   { name: "dev.to", icon: " ", href: "https://dev.to/" },
   // { name: "Downloads", icon: " " },
-  { name: "github.com", icon: " ", href: "https://github.com/" },
+  {
+    name: "github.com",
+    icon: " ",
+    content: [{ name: "dashboard", icon: "󰕮 ", href: "https://github.com/dashboard" }],
+  },
   { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
   // { name: "Music", icon: " " },
   {
@@ -20,7 +43,13 @@ const files: Entry[] = [
     icon: " ",
     href: "https://www.nerdfonts.com/cheat-sheet",
   },
-  { name: "npmjs.com", icon: " ", href: "https://www.npmjs.com/" },
+  {
+    name: "npmjs.com",
+    icon: " ",
+    search: "https://www.npmjs.com/search?q=",
+    description: "search packages",
+    dialog: true,
+  },
   // { name: "Pictures", icon: " " },
   // { name: "Repos", icon: " " },
   {
@@ -32,18 +61,20 @@ const files: Entry[] = [
   },
   {
     name: "shadcn/ui",
-    href: "https://ui.shadcn.com/docs/components/accordion",
+    href: "https://ui.shadcn.com/docs/components/",
   },
   {
     name: "tailwindcss",
     icon: "󱏿 ",
-    href: "https://tailwindcss.com/docs/installation",
+    href: "https://tailwindcss.com/docs/",
   },
   {
     name: "天眼查",
     shortcut: "t",
     icon: "󱣓 ",
-    href: "https://www.tianyancha.com/",
+    search: "https://www.tianyancha.com/search?key=",
+    description: "天眼一下",
+    dialog: true,
   },
   // { name: "Videos", icon: " " },
 ];
