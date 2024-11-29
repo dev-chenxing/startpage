@@ -15,6 +15,7 @@
   let activeIndex = $state(0);
 
   function onkeydown(e: KeyboardEvent) {
+    if (document.activeElement?.tagName == "INPUT") return;
     if (e.key == "ArrowDown") {
       activeIndex = mod(activeIndex + 1, files.length);
     } else if (e.key == "ArrowUp") {
