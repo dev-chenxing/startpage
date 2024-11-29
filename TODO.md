@@ -1,12 +1,9 @@
-# Nav
-
-- color bar for languages
-- no. for pokemons
-
 # Main
 
-- Svelte LF components
+- Markdown Syntax Highlighting
 
+- DEV.TO
+- SEARX
 - Github Stars
 - npmjs.com
 - Astro Docs https://docs.astro.build/en/getting-started/
