@@ -4,48 +4,26 @@ import Clock from "./react/Clock";
 const pathname = new URL(Astro.request.url).pathname;
 
 const tabs = [
-    { href: "/", icon: " ", padding: "pl-[1px]" },
-    { href: "/readme", icon: " ", padding: "pl-1" },
-    { href: "/mit-license", icon: " " },
-];
-const bookmarks = [
-    { href: "http://chenxing.io:8080/", text: "刑搜" },
-    { href: "https://www.baidu.com/", text: "百度" },
-    { href: "https://github.com/", text: "github" },
-    { href: "https://hpanel.hostinger.com/", text: "hostinger" },
-    { href: "https://www.tianyancha.com/", text: "天眼查" },
-    { href: "https://www.126.com/", text: "126网易邮" },
+  { href: "/", icon: " ", padding: "pl-[1px]" },
+  { href: "/readme", icon: " ", padding: "pl-1" },
+  { href: "/mit-license", icon: " " }
 ];
 ---
 
-<nav class="flex border px-2 lg:w-full lg:grid lg:grid-cols-[1fr_auto_1fr]">
-    <ul class="hidden lg:flex">
-        {
-            tabs.map((tab) => (
-                <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-white text-black" : "")}>
-                    <a
-                        class={"w-[18px] " + tab.padding}
-                        rel="prefetch"
-                        href={tab.href}
-                    >
-                        {tab.icon}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-    <ul class="hidden lg:flex">
-        {
-            bookmarks.map((bookmark) => {
-                return (
-                    <li class="!first:before:content-['_|_'] !first:before:float-left !first:before:mx-1">
-                        <a href={bookmark.href}>{bookmark.text}</a>
-                    </li>
-                );
-            })
-        }
-    </ul>
-    <div class="text-end">
-        <Clock client:only="react" />
-    </div>
+<nav class="flex border px-2 lg:w-full lg:grid lg:grid-cols-2">
+  <ul class="hidden lg:flex">
+    {
+      tabs.map(tab => (
+        <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-white text-black" : "")}>
+          <a class={"w-[18px] " + tab.padding} rel="prefetch" href={tab.href}>
+            {tab.icon}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="text-end">
+    <Clock client:only="react" />
+  </div>
 </nav>

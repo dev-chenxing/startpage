@@ -57,12 +57,12 @@
   </div>
   <div class="p-2"></div>
 </div>
-<dialog>
-  <form>
+<dialog class="bg-black text-white border">
+  <form class="py-1 px-2">
     <p>
       <label>
         {files[activeIndex].name}
-        <input />
+        <input class="bg-black text-white"/>
       </label>
     </p>
   </form>
