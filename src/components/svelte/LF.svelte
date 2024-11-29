@@ -14,7 +14,10 @@
     } else if (e.key == "ArrowUp") {
       activeIndex = mod(activeIndex - 1, files.length);
     } else if (e.key == "ArrowRight") {
-      if (files[activeIndex].href) window.open(files[activeIndex].href, "_self");
+      if (files[activeIndex].href) {
+        if (e.ctrlKey) window.open(files[activeIndex].href, "_blank");
+        else window.open(files[activeIndex].href, "_self");
+      }
     }
   }
 </script>
@@ -42,7 +45,7 @@
         <li class={"px-2 leading-snug text-red"}>EMPTY</li>
       {:else if files[activeIndex].href}
         <li class={"px-2 leading-snug"}>
-          Press 󰜵 key to follow link <a href={files[activeIndex].href}>{files[activeIndex].href}</a>
+          Press 󰜵 key to follow link <a class="underline" href={files[activeIndex].href}>{files[activeIndex].href}</a>
         </li>
       {/if}
     </ul>
