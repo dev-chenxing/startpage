@@ -5,6 +5,12 @@
     files: Entry[];
   }
   let { prompt, files }: Props = $props();
+  let shortcuts: Record<string, Array<number>> = {};
+  files.forEach((file, index) => {
+    if (!file.shortcut) file.shortcut = file.name[0];
+    if (!shortcuts[file.shortcut]) shortcuts[file.shortcut] = [];
+    shortcuts[file.shortcut].push(index);
+  });
 
   let activeIndex = $state(0);
 
@@ -21,6 +27,9 @@
         if (e.ctrlKey) window.open(files[activeIndex].href, "_blank");
         else window.open(files[activeIndex].href, "_self");
       }
+    } else if (e.key in shortcuts) {
+      let index = shortcuts[e.key].indexOf(activeIndex);
+      activeIndex = shortcuts[e.key][mod(index + 1, shortcuts[e.key].length)];
     }
   }
 </script>
@@ -34,7 +43,7 @@
 <div class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border">
   <div class="p-2 lf-pane-left">
     <ul>
-      {#each files as { name, icon, href, content }, index}
+      {#each files as { name, icon, href, content, shortcut }, index}
         <li class={"px-2 leading-snug " + (index === activeIndex ? "bg-white text-black" : "")}>
           <span class="text-sm mr-0.5">{icon || (href && " ") || (content && " ") || " "}</span>
           {name}
@@ -62,7 +71,7 @@
     <p>
       <label>
         {files[activeIndex].name}
-        <input class="bg-black text-white"/>
+        <input class="bg-black text-white" />
       </label>
     </p>
   </form>

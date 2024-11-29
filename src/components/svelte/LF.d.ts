@@ -5,4 +5,5 @@ type Entry = {
   href?: string;
   dialog?: boolean;
   description?: string;
+  shortcut?: string;
 };
