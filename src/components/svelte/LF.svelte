@@ -17,6 +17,7 @@
     undefined,
     undefined,
   ]);
+  let activeColumn = $state(0);
   let isCtrlDown = $state(false);
 
   function openLink(href: string | undefined) {
@@ -46,24 +47,38 @@
         );
       } else activeIndexes[0] = mod(activeIndexL - 1, files.length);
     } else if (e.key == "ArrowRight") {
-      if (activeFileL.dialog) {
+      let activeFile: Entry;
+      if (activeColumn == 0) activeFile = files[activeIndexes[0]];
+      else if (activeColumn == 1)
+        activeFile = files[activeIndexes[0]].content[activeIndexes[1]];
+      else if (activeColumn == 2)
+        activeFile =
+          files[activeIndexes[0]].content[activeIndexes[1]].content[
+            activeIndexes[2]
+          ];
+      console.log("activeColumn", activeColumn);
+      console.log(activeIndexes);
+      if (activeFile.dialog) {
         const dialog = document.querySelector("dialog");
         if (dialog) dialog.showModal();
-      } else if (activeFileL.href) {
-        openLink(activeFileL.href);
-      } else if (activeFileL.content?.length ?? 0 > 0) {
-        console.log("hello");
-        activeIndexes[1] = 0;
+      } else if (activeFile.href) {
+        console.log("open link");
+        openLink(activeFile.href);
+      } else if (activeFile.content?.length ?? 0 > 0) {
+        activeColumn += 1;
+        activeIndexes[activeColumn] = 0;
       }
     } else if (e.key == "ArrowLeft") {
       if (activeIndexes[1] != undefined) {
-        activeIndexes[1] = undefined;
+        activeIndexes[activeColumn] = undefined;
+        activeColumn -= 1;
       }
     } else if (e.key in shortcuts) {
       let index = shortcuts[e.key].indexOf(activeIndexL);
       activeIndexes[0] =
         shortcuts[e.key][mod(index + 1, shortcuts[e.key].length)];
     }
+    console.log(activeIndexes);
   }
   function onkeyup(e: KeyboardEvent) {
     switch (e.key) {
