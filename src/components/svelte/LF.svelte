@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { mod } from "./utils.ts";
+  import { mod } from "../lib/math.ts";
+
   interface Props {
     prompt: string;
     files: Entry[];
@@ -135,9 +136,9 @@
             {name}
           </li>
         {/each}
-      {:else if files[activeIndexes[0] ?? 0].dialog}
+      {:else if files[activeIndexes[0] ?? 0].description}
         <li class={"px-2 leading-snug"}>
-          Press 󰜵 key to {files[activeIndexes[0] ?? 0].description}
+          {files[activeIndexes[0] ?? 0].description}
         </li>
       {:else if files[activeIndexes[0] ?? 0].href}
         <li class={"px-2 leading-snug"}>
@@ -161,10 +162,9 @@
               >{files[activeIndexes[0]].content[activeIndexes[1]].href}</a
             >
           </li>
-        {:else if files[activeIndexes[0]].content[activeIndexes[1]].dialog}
+        {:else if files[activeIndexes[0]].content[activeIndexes[1]].description}
           <li class={"px-2 leading-snug"}>
-            Press 󰜵 key to {files[activeIndexes[0]].content[activeIndexes[1]]
-              .description}
+            {files[activeIndexes[0]].content[activeIndexes[1]].description}
           </li>
         {/if}
       {/if}

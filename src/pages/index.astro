@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LF from "../components/svelte/LF.svelte";
+import weatherReport from "../components/lib/weatherReport";
 
 const files: Entry[] = [
   // Alphabetical order
@@ -9,7 +10,7 @@ const files: Entry[] = [
     name: "archlinux.org",
     icon: "󰣇 ",
     search: "https://archlinux.org/packages/?q=",
-    description: "search packages",
+    description: "Press 󰜵 key to search packages",
     dialog: true,
   },
   {
@@ -24,7 +25,7 @@ const files: Entry[] = [
     icon: " ",
     dialog: true,
     search: "https://www.baidu.com/s?wd=",
-    description: "百度一下",
+    description: "Press 󰜵 key to 百度一下",
   },
   //   { name: "blog", icon: " ", content: [] },
   // { name: "Books", icon: " " },
@@ -32,7 +33,7 @@ const files: Entry[] = [
     name: "codepen.io",
     icon: " ",
     search: "https://codepen.io/search/pens?q=",
-    description: "search pens",
+    description: "Press 󰜵 key to search pens",
     dialog: true,
   },
   { name: "dev.to", icon: " ", href: "https://dev.to/" },
@@ -56,7 +57,7 @@ const files: Entry[] = [
         name: "search code",
         icon: " ",
         dialog: true,
-        description: "search code",
+        description: "Press 󰜵 key to search code",
         search: "https://github.com/search?type=code&q=",
       },
     ],
@@ -72,7 +73,7 @@ const files: Entry[] = [
     name: "npmjs.com",
     icon: " ",
     search: "https://www.npmjs.com/search?q=",
-    description: "search packages",
+    description: "Press 󰜵 key to search packages",
     dialog: true,
   },
   // { name: "Pictures", icon: " " },
@@ -81,7 +82,7 @@ const files: Entry[] = [
     icon: " ",
     search: "http://chenxing.io:8080/search?q=",
     dialog: true,
-    description: "search",
+    description: "Press 󰜵 key to search",
   },
   {
     name: "shadcn/ui",
@@ -97,10 +98,15 @@ const files: Entry[] = [
     shortcut: "t",
     icon: "󱣓 ",
     search: "https://www.tianyancha.com/search?key=",
-    description: "天眼一下",
+    description: "Press 󰜵 key to 天眼一下",
     dialog: true,
   },
   // { name: "Videos", icon: " " },
+  {
+    name: "wttr.in",
+    icon: "⛅️",
+    description: weatherReport(),
+  },
 ];
 ---
 
