@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LF from "../components/svelte/LF.svelte";
-import weatherReport from "../components/lib/weatherReport";
 
 const files: Entry[] = [
   // Alphabetical order
@@ -60,6 +59,13 @@ const files: Entry[] = [
         description: "Press 󰜵 key to search code",
         search: "https://github.com/search?type=code&q=",
       },
+      {
+        name: "search repositories",
+        icon: " ",
+        dialog: true,
+        description: "Press 󰜵 key to search repositories",
+        search: "https://github.com/search?type=repository&q=",
+      },
     ],
   },
   { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
@@ -102,11 +108,6 @@ const files: Entry[] = [
     dialog: true,
   },
   // { name: "Videos", icon: " " },
-  {
-    name: "wttr.in",
-    icon: "⛅️",
-    description: weatherReport(),
-  },
 ];
 ---
 
