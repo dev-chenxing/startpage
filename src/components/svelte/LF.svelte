@@ -56,13 +56,10 @@
           files[activeIndexes[0]].content[activeIndexes[1]].content[
             activeIndexes[2]
           ];
-      console.log("activeColumn", activeColumn);
-      console.log(activeIndexes);
       if (activeFile.dialog) {
         const dialog = document.querySelector("dialog");
         if (dialog) dialog.showModal();
       } else if (activeFile.href) {
-        console.log("open link");
         openLink(activeFile.href);
       } else if (activeFile.content?.length ?? 0 > 0) {
         activeColumn += 1;
@@ -78,7 +75,6 @@
       activeIndexes[0] =
         shortcuts[e.key][mod(index + 1, shortcuts[e.key].length)];
     }
-    console.log(activeIndexes);
   }
   function onkeyup(e: KeyboardEvent) {
     switch (e.key) {
@@ -90,8 +86,12 @@
   }
 
   let query = $state("");
-  function onSubmit() {
-    openLink(`${files[activeIndexes[0] ?? 0].search}${query}`);
+  function onSubmit(search) {
+    let activeFile: Entry;
+    if (activeIndexes[1] != undefined)
+      activeFile = files[activeIndexes[0]].content[activeIndexes[1]];
+    else activeFile = files[activeIndexes[0] ?? 0];
+    openLink(`${activeFile.search}${query}`);
   }
 </script>
 
@@ -150,7 +150,26 @@
       {/if}
     </ul>
   </div>
-  <div class="p-2"></div>
+  <div class="p-2">
+    <ul>
+      {#if activeIndexes[1] != undefined}
+        {#if files[activeIndexes[0]].content[activeIndexes[1]].href}
+          <li class={"px-2 leading-snug"}>
+            Press 󰜵 key to follow link <a
+              class="underline"
+              href={files[activeIndexes[0]].content[activeIndexes[1]].href}
+              >{files[activeIndexes[0]].content[activeIndexes[1]].href}</a
+            >
+          </li>
+        {:else if files[activeIndexes[0]].content[activeIndexes[1]].dialog}
+          <li class={"px-2 leading-snug"}>
+            Press 󰜵 key to {files[activeIndexes[0]].content[activeIndexes[1]]
+              .description}
+          </li>
+        {/if}
+      {/if}
+    </ul>
+  </div>
 </div>
 <dialog class="bg-black text-white border">
   <form class="py-1 px-2" action="javascript:void(0);" autocomplete="off">

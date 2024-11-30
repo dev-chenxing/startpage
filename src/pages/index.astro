@@ -13,6 +13,12 @@ const files: Entry[] = [
     dialog: true,
   },
   {
+    name: "astro.build",
+    icon: " ",
+    href: "https://docs.astro.build/en/getting-started/",
+  },
+
+  {
     name: "百度",
     shortcut: "b",
     icon: " ",
@@ -34,7 +40,26 @@ const files: Entry[] = [
   {
     name: "github.com",
     icon: " ",
-    content: [{ name: "dashboard", icon: "󰕮 ", href: "https://github.com/dashboard" }],
+    content: [
+      { name: "dashboard", icon: "󰕮 ", href: "https://github.com/dashboard" },
+      {
+        name: "repositories",
+        icon: " ",
+        href: "https://github.com/dev-chenxing?tab=repositories",
+      },
+      {
+        name: "stars",
+        icon: " ",
+        href: "https://github.com/dev-chenxing?tab=stars",
+      },
+      {
+        name: "search code",
+        icon: " ",
+        dialog: true,
+        description: "search code",
+        search: "https://github.com/search?type=code&q=",
+      },
+    ],
   },
   { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
   // { name: "Music", icon: " " },
@@ -51,7 +76,6 @@ const files: Entry[] = [
     dialog: true,
   },
   // { name: "Pictures", icon: " " },
-  // { name: "Repos", icon: " " },
   {
     name: "searxng",
     icon: " ",
