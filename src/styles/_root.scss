@@ -1,34 +1,36 @@
 @use "./themes/grey";
 
 @font-face {
-    font-family: "JetBrainsMono";
-    src: url("/fonts/JetBrainsMono-Regular.ttf");
+  font-family: "JetBrainsMono";
+  src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
 }
 @font-face {
-    font-family: "Noto Sans CJK";
-    src: url("/fonts/NotoSansCJKsc-Regular.otf");
+  font-family: "Noto Sans CJK";
+  src: url("/fonts/NotoSansCJKsc-Regular.otf") format("opentype");
 }
 @font-face {
-    font-family: "Noto Mono Nerd Font";
-    src: url("/fonts/NotoMonoNerdFont-Regular.ttf")  format('truetype');
+  font-family: "Noto Mono Nerd Font";
+  src: url("/fonts/NotoMonoNerdFont-Regular.ttf") format("truetype");
 }
 
 body {
-    height: 100vh;
-    display: grid;
-    grid-template-areas: "nav" "main";
-    grid-template-rows: auto 1fr;
-    place-items: center;
-    padding: 0.5em;
-    gap: 0.5em;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "nav" "main";
+  grid-template-rows: auto 1fr;
+  place-items: center;
+  padding: 0.5em;
+  gap: 0.5em;
 
-    color: var(--color-text);
-    background-color: var(--color-background);
-    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
-    font-size: 16px;
-    line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font",
+    monospace;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 pre {
-    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
+  font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font",
+    monospace;
 }
