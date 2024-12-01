@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function CookiesBanner() {
   const [cookiesBannerHidden, hideCookiesBanner] = useState(false);
-  function onClick(action: string) {
+  function onClick() {
     hideCookiesBanner(true);
   }
   return (
@@ -36,19 +36,19 @@ export default function CookiesBanner() {
                 <div className="flex gap-3 w-fit mx-auto">
                   <button
                     className="bg-yellow px-4 shadow-[6px_6px_0_0_black]"
-                    onClick={() => onClick("accept")}
+                    onClick={() => onClick()}
                   >
                     Accept All
                   </button>
                   <button
                     className="bg-white hover:bg-yellow px-4 shadow-[6px_6px_0_0_black]"
-                    onClick={() => onClick("reject")}
+                    onClick={() => onClick()}
                   >
                     Reject All
                   </button>
                   <button
                     className="bg-white hover:bg-yellow px-4 shadow-[6px_6px_0_0_black]"
-                    onClick={() => onClick("close")}
+                    onClick={() => onClick()}
                   >
                     Close
                   </button>
