@@ -1,0 +1,38 @@
+---
+
+---
+
+<style>
+    :root {
+        --width: 1920px;
+        --height: 1080px;
+        --scale: 1;
+    }
+    #wallpaper {
+        width: var(--width);
+        height: var(--height);
+        image-rendering: pixelated;
+        transform: scale(var(--scale));
+    }
+</style>
+<canvas
+    id="wallpaper"
+    class="absolute -z-10"
+></canvas>
+<script>
+    const container = document.getElementById("body");
+    if (container && container.parentElement)
+        new ResizeObserver(() => {
+            document.documentElement.style.setProperty("--scale", Math.min(container.parentElement?.offsetWidth / container.offsetWidth, container.parentElement?.offsetHeight / container.offsetHeight));
+        }).observe(container.parentElement);
+    async function main() {
+        const canvas = document.getElementById("wallpaper") as HTMLCanvasElement;
+        const c = canvas.getContext("2d");
+        if (c) {
+            c.imageSmoothingEnabled = false;
+            c.fillStyle = "green";
+            c.fillRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+    main();
+</script>
