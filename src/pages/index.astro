@@ -3,114 +3,125 @@ import Layout from "../layouts/Layout.astro";
 import LF from "../components/svelte/LF.svelte";
 
 const files: Entry[] = [
-  // Alphabetical order
-  { name: "126网易免费邮", icon: " ", href: "https://mail.126.com/" },
-  {
-    name: "archlinux.org",
-    icon: "󰣇 ",
-    search: "https://archlinux.org/packages/?q=",
-    description: "Press 󰜵 key to search packages",
-    dialog: true,
-  },
-  {
-    name: "astro.build",
-    icon: " ",
-    href: "https://docs.astro.build/en/getting-started/",
-  },
+    // Alphabetical order
+    { name: "126网易免费邮", icon: " ", href: "https://mail.126.com/" },
+    {
+        name: "archlinux.org",
+        icon: "󰣇 ",
+        href: "https://archlinux.org/packages/",
+        search: "https://archlinux.org/packages/?q=",
+        description: "Press 󰜵 key to search packages",
+        dialog: true,
+    },
+    {
+        name: "astro.build",
+        icon: " ",
+        href: "https://docs.astro.build/en/getting-started/",
+    },
 
-  {
-    name: "百度",
-    shortcut: "b",
-    icon: " ",
-    dialog: true,
-    search: "https://www.baidu.com/s?wd=",
-    description: "Press 󰜵 key to 百度一下",
-  },
-  //   { name: "blog", icon: " ", content: [] },
-  // { name: "Books", icon: " " },
-  {
-    name: "codepen.io",
-    icon: " ",
-    search: "https://codepen.io/search/pens?q=",
-    description: "Press 󰜵 key to search pens",
-    dialog: true,
-  },
-  { name: "dev.to", icon: " ", href: "https://dev.to/" },
-  // { name: "Downloads", icon: " " },
-  {
-    name: "github.com",
-    icon: " ",
-    content: [
-      { name: "dashboard", icon: "󰕮 ", href: "https://github.com/dashboard" },
-      {
-        name: "repositories",
-        icon: " ",
-        href: "https://github.com/dev-chenxing?tab=repositories",
-      },
-      {
-        name: "stars",
-        icon: " ",
-        href: "https://github.com/dev-chenxing?tab=stars",
-      },
-      {
-        name: "search code",
-        icon: " ",
+    {
+        name: "百度",
+        shortcut: "b",
+        icon: " ",
+        href: "https://www.baidu.com/",
         dialog: true,
-        description: "Press 󰜵 key to search code",
-        search: "https://github.com/search?type=code&q=",
-      },
-      {
-        name: "search repositories",
-        icon: " ",
+        search: "https://www.baidu.com/s?wd=",
+        description: "Press 󰜵 key to 百度一下",
+    },
+    //   { name: "blog", icon: " ", content: [] },
+    // { name: "Books", icon: " " },
+    {
+        name: "codepen.io",
+        icon: " ",
+        href: "https://codepen.io/",
+        search: "https://codepen.io/search/pens?q=",
+        description: "Press 󰜵 key to search pens",
         dialog: true,
-        description: "Press 󰜵 key to search repositories",
-        search: "https://github.com/search?type=repository&q=",
-      },
-    ],
-  },
-  { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
-  // { name: "Music", icon: " " },
-  {
-    name: "nerdfonts.com",
-    icon: " ",
-    href: "https://www.nerdfonts.com/cheat-sheet",
-  },
-  {
-    name: "npmjs.com",
-    icon: " ",
-    search: "https://www.npmjs.com/search?q=",
-    description: "Press 󰜵 key to search packages",
-    dialog: true,
-  },
-  // { name: "Pictures", icon: " " },
-  {
-    name: "searxng",
-    icon: " ",
-    search: "http://chenxing.io:8080/search?q=",
-    dialog: true,
-    description: "Press 󰜵 key to search",
-  },
-  {
-    name: "shadcn/ui",
-    href: "https://ui.shadcn.com/docs/components/",
-  },
-  {
-    name: "tailwindcss",
-    icon: "󱏿 ",
-    href: "https://tailwindcss.com/docs/",
-  },
-  {
-    name: "天眼查",
-    shortcut: "t",
-    icon: "󱣓 ",
-    search: "https://www.tianyancha.com/search?key=",
-    description: "Press 󰜵 key to 天眼一下",
-    dialog: true,
-  },
-  // { name: "Videos", icon: " " },
+    },
+    { name: "dev.to", icon: " ", href: "https://dev.to/" },
+    // { name: "Downloads", icon: " " },
+    {
+        name: "github.com",
+        icon: " ",
+        href: "https://github.com/",
+        content: [
+            { name: "dashboard", icon: "󰕮 ", href: "https://github.com/dashboard" },
+            {
+                name: "repositories",
+                icon: " ",
+                href: "https://github.com/dev-chenxing?tab=repositories",
+            },
+            {
+                name: "stars",
+                icon: " ",
+                href: "https://github.com/dev-chenxing?tab=stars",
+            },
+            {
+                name: "search code",
+                icon: " ",
+                dialog: true,
+                description: "Press 󰜵 key to search code",
+                search: "https://github.com/search?type=code&q=",
+            },
+            {
+                name: "search repositories",
+                icon: " ",
+                dialog: true,
+                description: "Press 󰜵 key to search repositories",
+                search: "https://github.com/search?type=repository&q=",
+            },
+        ],
+    },
+    { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
+    // { name: "Music", icon: " " },
+    {
+        name: "nerdfonts.com",
+        icon: " ",
+        href: "https://www.nerdfonts.com/cheat-sheet",
+    },
+    {
+        name: "npmjs.com",
+        icon: " ",
+        href: "https://www.npmjs.com/",
+        search: "https://www.npmjs.com/search?q=",
+        description: "Press 󰜵 key to search packages",
+        dialog: true,
+    },
+    // { name: "Pictures", icon: " " },
+    {
+        name: "searxng",
+        icon: " ",
+        href: "http://chenxing.io:8080/",
+        search: "http://chenxing.io:8080/search?q=",
+        dialog: true,
+        description: "Press 󰜵 key to search",
+    },
+    {
+        name: "shadcn/ui",
+        href: "https://ui.shadcn.com/docs/components/",
+    },
+    {
+        name: "tailwindcss",
+        icon: "󱏿 ",
+        href: "https://tailwindcss.com/docs/",
+    },
+    {
+        name: "天眼查",
+        shortcut: "t",
+        icon: "󱣓 ",
+        href: "https://www.tianyancha.com/",
+        search: "https://www.tianyancha.com/search?key=",
+        description: "Press 󰜵 key to 天眼一下",
+        dialog: true,
+    },
+    // { name: "Videos", icon: " " },
 ];
 ---
 
 <Layout title="New tab">
-  <LF prompt="陈刑@chenxing.io" files={files} client:only="svelte" />
+    <LF
+        prompt="陈刑@chenxing.io"
+        files={files}
+        client:only="svelte"
+    />
 </Layout>
