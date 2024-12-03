@@ -1,7 +1,6 @@
 # TODO
 
-- Push to main
 
 ## Body
 
-- background
+- parallax background
