@@ -10,22 +10,37 @@ const files: Entry[] = [
     icon: "󰣇 ",
     search: "https://archlinux.org/packages/?q=",
     description: "Press 󰜵 key to search packages",
-    dialog: true,
+    dialog: true
   },
   {
     name: "astro.build",
     icon: " ",
-    href: "https://docs.astro.build/en/getting-started/",
+    href: "https://docs.astro.build/en/getting-started/"
   },
-
   {
     name: "百度",
     shortcut: "b",
     icon: " ",
-    dialog: true,
-    search: "https://www.baidu.com/s?wd=",
-    description: "Press 󰜵 key to 百度一下",
+    content: [
+      {
+        name: "网页",
+        shortcut: "w",
+        icon: " ",
+        dialog: true,
+        search: "https://www.baidu.com/s?wd=",
+        description: "Press 󰜵 key to 百度一下"
+      },
+      {
+        name: "地图",
+        shortcut: "d",
+        icon: " ",
+        dialog: true,
+        search: "https://map.baidu.com/search/@12610000,2630000?querytype=s&wd=",
+        description: "Press 󰜵 key to 百度地图"
+      }
+    ]
   },
+
   //   { name: "blog", icon: " ", content: [] },
   // { name: "Books", icon: " " },
   {
@@ -33,7 +48,7 @@ const files: Entry[] = [
     icon: " ",
     search: "https://codepen.io/search/pens?q=",
     description: "Press 󰜵 key to search pens",
-    dialog: true,
+    dialog: true
   },
   { name: "dev.to", icon: " ", href: "https://dev.to/" },
   // { name: "Downloads", icon: " " },
@@ -45,42 +60,42 @@ const files: Entry[] = [
       {
         name: "repositories",
         icon: " ",
-        href: "https://github.com/dev-chenxing?tab=repositories",
+        href: "https://github.com/dev-chenxing?tab=repositories"
       },
       {
         name: "stars",
         icon: " ",
-        href: "https://github.com/dev-chenxing?tab=stars",
+        href: "https://github.com/dev-chenxing?tab=stars"
       },
       {
         name: "search code",
         icon: " ",
         dialog: true,
         description: "Press 󰜵 key to search code",
-        search: "https://github.com/search?type=code&q=",
+        search: "https://github.com/search?type=code&q="
       },
       {
         name: "search repositories",
         icon: " ",
         dialog: true,
         description: "Press 󰜵 key to search repositories",
-        search: "https://github.com/search?type=repository&q=",
-      },
-    ],
+        search: "https://github.com/search?type=repository&q="
+      }
+    ]
   },
   { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
   // { name: "Music", icon: " " },
   {
     name: "nerdfonts.com",
     icon: " ",
-    href: "https://www.nerdfonts.com/cheat-sheet",
+    href: "https://www.nerdfonts.com/cheat-sheet"
   },
   {
     name: "npmjs.com",
     icon: " ",
     search: "https://www.npmjs.com/search?q=",
     description: "Press 󰜵 key to search packages",
-    dialog: true,
+    dialog: true
   },
   // { name: "Pictures", icon: " " },
   {
@@ -88,16 +103,16 @@ const files: Entry[] = [
     icon: " ",
     search: "http://chenxing.io:8080/search?q=",
     dialog: true,
-    description: "Press 󰜵 key to search",
+    description: "Press 󰜵 key to search"
   },
   {
     name: "shadcn/ui",
-    href: "https://ui.shadcn.com/docs/components/",
+    href: "https://ui.shadcn.com/docs/components/"
   },
   {
     name: "tailwindcss",
     icon: "󱏿 ",
-    href: "https://tailwindcss.com/docs/",
+    href: "https://tailwindcss.com/docs/"
   },
   {
     name: "天眼查",
@@ -105,8 +120,8 @@ const files: Entry[] = [
     icon: "󱣓 ",
     search: "https://www.tianyancha.com/search?key=",
     description: "Press 󰜵 key to 天眼一下",
-    dialog: true,
-  },
+    dialog: true
+  }
   // { name: "Videos", icon: " " },
 ];
 ---
