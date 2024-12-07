@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import pokemons from "../../content/pokemons/pokemon.json";
-import languagesColor from "../../content/languages/languages.json";
+import pokemons from "../lib/pokemon.json"
+import languagesColor from "../lib/languages.json";
 import { useEffect, useState } from "react";
 import TypeIt from "typeit-react"
 
