@@ -64,9 +64,10 @@
                 activeIndexes[activeColumn] = -1;
                 activeColumn -= 1;
             }
-        } else if (e.key in shortcuts) {
-            let index = shortcuts[e.key].indexOf(activeIndexL);
-            activeIndexes[0] = shortcuts[e.key][mod(index + 1, shortcuts[e.key].length)];
+        } else if (e.key.toLowerCase() in shortcuts) {
+            let key = e.key.toLowerCase();
+            let index = shortcuts[key].indexOf(activeIndexL);
+            activeIndexes[0] = shortcuts[key][mod(index + 1, shortcuts[key].length)];
         }
     }
     function onkeyup(e: KeyboardEvent) {
