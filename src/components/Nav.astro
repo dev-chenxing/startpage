@@ -3,18 +3,29 @@ import Clock from "./react/Clock";
 
 const pathname = new URL(Astro.request.url).pathname;
 
-const tabs = [
+type Tab = {
+    href: string;
+    icon: string;
+    padding?: string;
+    isDir?: boolean;
+};
+
+const tabs: Tab[] = [
     { href: "/", icon: " ", padding: "pl-[1px]" },
-    { href: "/labor-laws/", icon: " ", padding: "pl-1" },
+    { href: "/labor-laws/", icon: " ", padding: "pl-1", isDir: true },
     { href: "/mit-license/", icon: " " },
 ];
+
+const isHighlighted = function (tab: Tab) {
+    return tab.isDir ? pathname.includes(tab.href) : pathname == tab.href;
+};
 ---
 
 <nav class="flex justify-center w-full border px-2 lg:w-full lg:grid lg:grid-cols-2 bg-black/50">
     <ul class="hidden lg:flex">
         {
             tabs.map((tab) => (
-                <li class={"w-[26px] flex justify-center " + (pathname === tab.href ? "bg-white text-black" : "")}>
+                <li class={"w-[26px] flex justify-center " + (isHighlighted(tab) ? "bg-white text-black" : "")}>
                     <a
                         class={"w-[18px] " + tab.padding}
                         rel="prefetch"
