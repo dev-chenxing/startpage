@@ -5,7 +5,9 @@
         "jsxImportSource": "react",
         "baseUrl": ".",
         "paths": {
-            "@layouts/*": ["src/layouts/*"]
-        }
+            "@layouts/*": ["src/layouts/*"],
+            "@pages/*": ["src/pages/*"]
+        },
+        "allowJs": true
     }
 }
