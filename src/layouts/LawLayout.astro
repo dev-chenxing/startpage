@@ -4,9 +4,9 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    <div class="overflow-auto w-full my-auto flex flex-col">
-        <article class="mx-auto w-[65ch] prose prose-grey prose-sm mt-2 prose-p:leading-normal prose-p:my-1 prose-ol:my-1 prose-headings:mt-4 prose-h2:text-grey prose-hr:my-4">
-            <slot />
-        </article>
-    </div>
+	<div class="overflow-auto w-full my-auto flex flex-col">
+		<article class="mx-auto w-[65ch] prose prose-grey prose-sm mt-2 prose-headings:mt-4 prose-h1:text-grey prose-h2:text-grey prose-p:leading-normal prose-p:my-1 prose-ol:my-1 prose-hr:my-4 prose-strong:bg-grey">
+			<slot />
+		</article>
+	</div>
 </Layout>

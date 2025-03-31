@@ -1,5 +1,18 @@
 :root {
-  --color-background: black;
-  --color-text: #fdfdfd;
-  --color-grey: #a5a5a5;
+	--color-background: black;
+	--color-text: #fdfdfd;
+	--color-grey: #a5a5a5;
+}
+.prose p:has(strong) {
+	margin-top: 1rem;
+}
+
+.prose details {
+	padding: 6px; 
+	border: 1px solid var(--color-text);
+}
+
+.prose details > summary {
+	padding: 2px 6px;
+	cursor: pointer;
 }
