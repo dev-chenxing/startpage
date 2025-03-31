@@ -3,6 +3,19 @@
 	--color-text: #fdfdfd;
 	--color-grey: #a5a5a5;
 }
+
+
+.prose h2 {
+	text-align: center;
+	font-size: 1.125rem;
+	color: var(--color-text);
+}
+
+.prose h3 {
+	text-align: center;
+	font-size: 1rem;
+}
+
 .prose p:has(strong) {
 	margin-top: 1rem;
 }
