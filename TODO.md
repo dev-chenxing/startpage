@@ -1,0 +1,2 @@
+- [ ] pagination link
+- [ ] table of contents on hotkey
