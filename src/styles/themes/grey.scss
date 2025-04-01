@@ -14,6 +14,7 @@
 .prose h3 {
 	text-align: center;
 	font-size: 1rem;
+	font-weight: 300;
 }
 
 .prose p:has(strong) {
@@ -28,6 +29,13 @@
 .prose details > summary {
 	padding: 2px 0;
 	cursor: pointer;
+	line-height: 1.2;
+}
+
+.prose details > summary::marker {
+	content: " ";
+	color: var(--color-grey);
+	font-size: 1.2em;
 }
 
 .prose details > p {
