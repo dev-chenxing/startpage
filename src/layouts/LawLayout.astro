@@ -1,44 +1,41 @@
 ---
 import Layout from "./Layout.astro";
-import TableOfContents from "@pages/labor-laws/src/components/TableOfContents.astro";
+import { getLaborLaws } from "@pages/labor-laws/src/utils.ts"
+import TableOfContents from "@pages/labor-laws/src/components/TableOfContents.svelte";
 const { frontmatter } = Astro.props;
+
+const laborLaws = getLaborLaws();
 ---
 
 <Layout title={frontmatter.title}>
-    <div class="overflow-auto w-full my-auto flex flex-col">
-        <article class="mx-auto w-[65ch] prose prose-grey prose-sm mt-2 prose-headings:mt-4 prose-h1:text-grey prose-h2:text-grey prose-p:leading-normal prose-p:my-1 prose-ol:my-1 prose-hr:my-4 prose-strong:bg-grey">
-            <slot />
-        </article>
-    </div>
-    <dialog>
-        <form
-            class="py-1 px-2 bg-black text-white border fixed top-[15vh] -translate-x-1/2"
-            action="javascript:void(0);"
-            autocomplete="off"
-        >
-            <p class="border-b pb-1 mb-1">
-                <label for="input">  </label>
-                <input
-                    id="input"
-                    class="bg-black text-white ml-1 w-96"
-                />
-                <input
-                    type="submit"
-                    value="󰘌"
-                    class="cursor-pointer w-6"
-                    onclick={null}
-                />
-            </p>
-            <TableOfContents />
-        </form>
-    </dialog>
-    <script is:inline define:vars={{}}>
-        window.addEventListener("keydown", (event) => {
-            if (document.activeElement?.tagName == "INPUT") return;
-            if (event.ctrlKey && event.key == "f") {
-                document.querySelector("dialog").showModal();
-                event.preventDefault();
-            }
-        });
-    </script>
+	<div class="overflow-auto w-full my-auto flex flex-col">
+		<article class="mx-auto w-[65ch] prose prose-grey prose-sm mt-2 prose-headings:mt-4 prose-h1:text-grey prose-h2:text-grey prose-p:leading-normal prose-p:my-1 prose-ol:my-1 prose-hr:my-4 prose-strong:bg-grey">
+			<slot />
+		</article>
+	</div>
+	<dialog>
+		<form
+			class="py-1 px-2 bg-black text-white border fixed top-[15vh] -translate-x-1/2"
+			action="javascript:void(0);"
+			autocomplete="off"
+		>
+			<p class="border-b pb-1 mb-1">
+				<label for="input">  </label>
+				<input
+					id="input"
+					class="bg-black text-white ml-1 w-96"
+				/>
+			</p>
+			<TableOfContents client:only="svelte" laborLaws={laborLaws}/>
+		</form>
+	</dialog>
+	<script is:inline define:vars={{}}>
+		window.addEventListener("keydown", (event) => {
+			if (document.activeElement?.tagName == "INPUT") return;
+			if (event.ctrlKey && event.key == "f") {
+				document.querySelector("dialog").showModal();
+				event.preventDefault();
+			}
+		});
+	</script>
 </Layout>

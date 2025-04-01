@@ -1,2 +1,3 @@
+- [ ] add gitee to remote
 - [ ] pagination link
-- [ ] table of contents on hotkey
+

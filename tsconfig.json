@@ -1,13 +1,14 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "jsx": "react-jsx",
-        "jsxImportSource": "react",
-        "baseUrl": ".",
-        "paths": {
-            "@layouts/*": ["src/layouts/*"],
-            "@pages/*": ["src/pages/*"]
-        },
-        "allowJs": true
-    }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"baseUrl": ".",
+		"paths": {
+			"@layouts/*": ["src/layouts/*"],
+			"@pages/*": ["src/pages/*"],
+			"@lib/*": ["src/components/lib/*"]
+		},
+		"allowJs": true
+	}
 }
