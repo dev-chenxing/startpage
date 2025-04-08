@@ -1,7 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import { getLaborLaws } from "@pages/labor-laws/src/utils.ts"
-import TableOfContents from "@pages/labor-laws/src/components/TableOfContents.svelte";
+import TableOfContents from "@components/svelte/TableOfContents.svelte";
 const { frontmatter } = Astro.props;
 
 const laborLaws = getLaborLaws();
