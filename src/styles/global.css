@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-black: #000000;
+    --color-red: #E64A29;
+    --color-green: #5AC55A;
+    --color-yellow: #FFCE29;
+    --color-blue: #5AADFF;
+    --color-magenta: #C583CD;
+    --color-cyan: #63C5C5;
+    --color-white: #fdfdfd;
+    --color-grey: #C5C5C5;
+}
+
+@utility prose-grey {
+    --tw-prose-body: #fdfdfd;
+    --tw-prose-headings: #fdfdfd;
+    --tw-prose-links: #fdfdfd;
+    --tw-prose-pre-code: #fdfdfd;
+    --tw-prose-pre-bg: #000000;
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans CJK";
+    src: url("/fonts/NotoSansCJKsc-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Noto Mono Nerd Font";
+    src: url("/fonts/NotoMonoNerdFont-Regular.ttf") format("truetype");
+}
+
+@layer base {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    *:focus-visible,
+    input:focus-visible {
+        outline: none;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+:root {
+    --color-background: black;
+    --color-text: #fdfdfd;
+    --color-grey: #a5a5a5;
+}
+
+body {
+    min-height: 100vh;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "nav" "main";
+    grid-template-rows: auto 1fr;
+    place-items: center;
+    padding: 0.5em;
+    gap: 0.5em;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+pre {
+    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
+}
+
+.prose h2 {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text);
+}
+
+.prose h3 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.prose p:has(strong) {
+    margin-top: 1rem;
+}
+
+.prose details {
+    padding: 6px 10px;
+    border: 1px solid var(--color-text);
+}
+
+.prose details>summary {
+    padding: 2px 0;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.prose details>summary::marker {
+    content: " ";
+    color: var(--color-grey);
+    font-size: 1.2em;
+}
+
+.prose details>p {
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+div {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-grey) #0000;
+}

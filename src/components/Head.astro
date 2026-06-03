@@ -1,0 +1,22 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+const { title } = Astro.props;
+---
+
+<!-- Base meta tags -->
+<meta charset="utf-8" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+/>
+<meta
+    name="generator"
+    content={Astro.generator}
+/>
+<link
+    rel="shortcut icon"
+    href="#"
+/>
+<ClientRouter />
+<title>{title}</title>

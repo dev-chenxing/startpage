@@ -1,0 +1,51 @@
+---
+import Clock from "./react/Clock";
+
+const pathname = new URL(Astro.request.url).pathname;
+
+type Tab = {
+    href: string;
+    icon: string;
+    padding?: string;
+    isDir?: boolean;
+};
+
+const tabs: Tab[] = [{ href: "/", icon: " ", padding: "pl-[1px]" }];
+
+const isHighlighted = function (tab: Tab) {
+    return tab.isDir ? pathname.includes(tab.href) : pathname == tab.href;
+};
+---
+
+<nav class="flex justify-center w-full border px-2 lg:w-full lg:grid lg:grid-cols-2 bg-black/50">
+    <ul class="hidden lg:flex">
+        {
+            tabs.map((tab) => (
+                <li class={"w-[26px] flex justify-center " + (isHighlighted(tab) ? "bg-white text-black" : "")}>
+                    <a
+                        class={"w-[18px] " + tab.padding}
+                        rel="prefetch"
+                        href={tab.href}
+                    >
+                        {tab.icon}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+
+    <div class="text-end">
+        <Clock client:only="react" />
+    </div>
+
+    <script is:inline define:vars={{ tabs }}>
+        window.addEventListener("keydown", (event) => {
+            if (document.activeElement?.tagName == "INPUT") return;
+            key = Number(event.key) - 1;
+            if (event.altKey && key in tabs) {
+                let href = tabs[key].href;
+                window.open(href, "_self");
+            }
+        });
+    </script>
+</nav>
