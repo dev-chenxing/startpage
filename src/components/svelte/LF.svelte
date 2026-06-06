@@ -89,7 +89,7 @@
             let content = files[activeIndexes[0]].content ?? [];
             activeFile = content[activeIndexes[1]];
         } else activeFile = files[activeIndexes[0]];
-        openLink(`${activeFile.search}${query}`);
+        openLink(`${activeFile.search}${encodeURIComponent(query)}`);
     }
 </script>
 
