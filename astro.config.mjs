@@ -1,8 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 
-import react from "@astrojs/react";
-
 import mdx from "@astrojs/mdx";
 
 import svelte from "@astrojs/svelte";
@@ -16,7 +14,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    integrations: [react(), mdx(), svelte()],
+    integrations: [mdx(), svelte()],
     fonts: [
         {
             provider: fontProviders.local(),

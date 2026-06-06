@@ -1,5 +1,5 @@
 ---
-import Clock from "./react/Clock";
+import Clock from "./svelte/Clock.svelte";
 
 const pathname = new URL(Astro.request.url).pathname;
 
@@ -45,7 +45,7 @@ const isHighlighted = function (tab: Tab) {
     </ul>
 
     <div class="text-end">
-        <Clock client:only="react" />
+        <Clock client:only="svelte" />
     </div>
 
     <script is:inline define:vars={{ tabs }}>
