@@ -54,7 +54,7 @@ export default defineConfig({
             options: {
                 variants: [
                     {
-                        src: ["./src/assets/fonts/SymbolsNerdFontMono-Regular.ttf"],
+                        src: ["./src/assets/fonts/SymbolsNerdFontMono-Regular.woff2"],
                         weight: "normal",
                         style: "normal",
                     },
