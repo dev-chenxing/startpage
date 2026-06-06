@@ -41,9 +41,9 @@ const isHighlighted = function (tab: Tab) {
     <script is:inline define:vars={{ tabs }}>
         window.addEventListener("keydown", (event) => {
             if (document.activeElement?.tagName == "INPUT") return;
-            key = Number(event.key) - 1;
+            const key = Number(event.key) - 1;
             if (event.altKey && key in tabs) {
-                let href = tabs[key].href;
+                const href = tabs[key].href;
                 window.open(href, "_self");
             }
         });
