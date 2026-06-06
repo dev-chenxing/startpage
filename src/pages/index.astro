@@ -1,6 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LF from "../components/svelte/LF.svelte";
+import Browser from "../components/svelte/Browser.svelte";
+
+type Entry = {
+    name: string;
+    icon?: string;
+    content?: Array<Entry>;
+    href?: string;
+    dialog?: boolean;
+    description?: string;
+    shortcut?: string;
+    search?: string;
+};
 
 const files: Entry[] = [
     // Alphabetical order
@@ -140,7 +151,7 @@ const files: Entry[] = [
 ---
 
 <Layout title="New tab">
-    <LF
+    <Browser
         prompt="陈刑@chenxing.io"
         files={files}
         client:only="svelte"
