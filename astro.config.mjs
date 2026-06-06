@@ -39,7 +39,7 @@ export default defineConfig({
             options: {
                 variants: [
                     {
-                        src: ["./src/assets/fonts/NotoSansCJK-wght-400-900.ttf.woff2"],
+                        src: ["./src/assets/fonts/NotoSansCJK-Regular.woff2"],
                         weight: "normal",
                         style: "normal",
                     },
