@@ -91,6 +91,17 @@
         } else activeFile = files[activeIndexes[0]];
         openLink(`${activeFile.search}${encodeURIComponent(query)}`);
     }
+
+    let dialog: HTMLDialogElement | null = null;
+    function onDialogClick(e: MouseEvent) {
+        // if clicking on the backdrop (dialog itself), close it
+        if (e.target === dialog) dialog?.close();
+    }
+    function handleSubmit(e: Event) {
+        e.preventDefault();
+        onSubmit();
+        dialog?.close();
+    }
 </script>
 
 <svelte:window
@@ -164,7 +175,11 @@
         </ul>
     </div>
 </div>
-<dialog class="m-auto bg-black text-white border fixed inset-0">
+<dialog
+    bind:this={dialog}
+    class="m-auto bg-black text-white border fixed inset-0"
+    onclick={onDialogClick}
+>
     <form
         class="py-1 px-2"
         action="javascript:void(0);"
@@ -181,7 +196,7 @@
                 type="submit"
                 value="󰘌"
                 class="cursor-pointer w-6"
-                onclick={onSubmit}
+                onclick={handleSubmit}
             />
         </p>
     </form>
