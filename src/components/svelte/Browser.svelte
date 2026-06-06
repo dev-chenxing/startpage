@@ -1,6 +1,17 @@
 <script lang="ts">
     import { mod } from "../lib/math.ts";
 
+    type Entry = {
+        name: string;
+        icon?: string;
+        href?: string;
+        description?: string;
+        search?: string;
+        shortcut?: string;
+        dialog?: boolean;
+        content?: Array<Entry>;
+    };
+
     interface Props {
         prompt: string;
         files: Entry[];
@@ -110,14 +121,14 @@
 />
 
 <div class="w-full">
-    <span class="text-grey">{prompt}</span>
+    <span class="text-black/70 dark:text-white/70">{prompt}</span>
     <span>~/{files[activeIndexes[0]].name}</span>
 </div>
 <div class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border">
     <div class="p-2 lf-pane-left">
         <ul>
             {#each files as { name, icon, href, content }, index}
-                <li class={"px-2 leading-snug " + (index === activeIndexes[0] ? "bg-white text-black" : "")}>
+                <li class={"px-2 leading-snug " + (index === activeIndexes[0] ? "bg-black text-white dark:bg-white dark:text-black" : "")}>
                     {#if href}
                         <a {href}
                             ><span class="text-sm mr-0.5">{icon || (href && " ") || (content && " ") || " "}</span>
@@ -134,10 +145,10 @@
     <div class="p-2 border-x">
         <ul>
             {#if files[activeIndexes[0]].content?.length == 0}
-                <li class={"px-2 leading-snug text-red"}>EMPTY</li>
+                <li class={"px-2 leading-snug text-red-700 dark:text-red-400"}>EMPTY</li>
             {:else if files[activeIndexes[0]].content?.length}
                 {#each files[activeIndexes[0]].content ?? [] as { name, icon, href, content }, index}
-                    <li class={"px-2 leading-snug " + (index === activeIndexes[1] ? "bg-white text-black" : "")}>
+                    <li class={"px-2 leading-snug " + (index === activeIndexes[1] ? "bg-black text-white dark:bg-white dark:text-black" : "")}>
                         <span class="text-sm mr-0.5">{icon || (href && " ") || (content && " ") || " "}</span>
                         {name}
                     </li>
@@ -177,7 +188,7 @@
 </div>
 <dialog
     bind:this={dialog}
-    class="m-auto bg-black text-white border fixed inset-0"
+    class="fixed inset-0 m-auto border border-black/70 bg-white text-black backdrop:bg-black/5 dark:border-white/70 dark:bg-black dark:text-white dark:backdrop:bg-black/60"
     onclick={onDialogClick}
 >
     <form
@@ -189,13 +200,13 @@
             <label for="input"> {files[activeIndexes[0]].name}</label>
             <input
                 id="input"
-                class="bg-black text-white ml-1 w-96"
+                class="ml-1 w-96"
                 bind:value={query}
             />
             <input
                 type="submit"
                 value="󰘌"
-                class="cursor-pointer w-6"
+                class="w-6 cursor-pointer"
                 onclick={handleSubmit}
             />
         </p>

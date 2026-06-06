@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
 import Clock from "./svelte/Clock.svelte";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -27,11 +28,11 @@ const isHighlighted = function (tab: Tab) {
 };
 ---
 
-<nav class="flex justify-center w-full border px-2 lg:w-full lg:grid lg:grid-cols-2 bg-black/50">
-    <ul class="hidden lg:flex">
+<nav class="flex w-full justify-between border border-black/70 bg-white/50 px-2 text-black transition-colors dark:border-white/70 dark:bg-black/50 dark:text-white">
+    <ul class="flex">
         {
             tabs.map((tab) => (
-                <li class={"w-[26px] flex justify-center " + (isHighlighted(tab) ? "bg-white text-black" : "")}>
+                <li class={"flex w-[26px] justify-center " + (isHighlighted(tab) ? "bg-black text-white hover:text-white/90 dark:bg-white dark:text-black dark:hover:text-black/80" : "hover:text-black/70 dark:hover:text-white/70")}>
                     <a
                         class={"w-[18px] " + tab.padding}
                         rel="prefetch"
@@ -44,8 +45,9 @@ const isHighlighted = function (tab: Tab) {
         }
     </ul>
 
-    <div class="text-end">
+    <div class="flex justify-end gap-2 text-end">
         <Clock client:only="svelte" />
+        <ThemeToggle />
     </div>
 
     <script is:inline define:vars={{ tabs }}>
