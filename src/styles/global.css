@@ -13,27 +13,16 @@
     --color-grey: #C5C5C5;
 }
 
+@theme inline {
+    --font-mono: var(--font-jetbrains-mono), var(--font-noto-sans-cjk), var(--font-symbols-nerd-font), monospace;
+}
+
 @utility prose-grey {
     --tw-prose-body: #fdfdfd;
     --tw-prose-headings: #fdfdfd;
     --tw-prose-links: #fdfdfd;
     --tw-prose-pre-code: #fdfdfd;
     --tw-prose-pre-bg: #000000;
-}
-
-@font-face {
-    font-family: "JetBrainsMono";
-    src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Noto Sans CJK";
-    src: url("/fonts/NotoSansCJKsc-Regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Noto Mono Nerd Font";
-    src: url("/fonts/NotoMonoNerdFont-Regular.ttf") format("truetype");
 }
 
 @layer base {
@@ -92,13 +81,13 @@ body {
     gap: 0.5em;
     color: var(--color-text);
     background-color: var(--color-background);
-    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
+    font-family: var(--font-mono);
     font-size: 16px;
     line-height: 1.6;
 }
 
 pre {
-    font-family: "JetBrainsMono", "Noto Sans CJK", "Noto Mono Nerd Font", monospace;
+    font-family: var(--font-mono);
 }
 
 .prose h2 {
