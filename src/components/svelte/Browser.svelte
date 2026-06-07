@@ -148,50 +148,53 @@
   {/if}
 {/snippet}
 
-<div class="w-full">
-  <span class="text-black/70 dark:text-white/70">{prompt}</span>
-  <span class="text-cyan-700 dark:text-cyan-300/90">
-    ~/{activeRoot?.name}
-  </span>
-</div>
-<div class="h-full w-full grid grid-cols-5 border">
-  <!-- Left Pane -->
-  <div
-    class={`p-2 ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "col-span-1" : ""}`}
-  >
-    <ul>
-      {#each files as entry, index}
-        <BrowserItem {entry} isActive={index === activeIndexes[0]} href />
-      {/each}
-    </ul>
+<div class="h-full flex flex-col w-full">
+  <div class="w-full">
+    <span class="text-black/70 dark:text-white/70">{prompt}</span>
+    <span class="text-cyan-700 dark:text-cyan-300/90">
+      ~/{activeRoot?.name}
+    </span>
   </div>
-  <!-- Middle Pane -->
-  <div
-    class={`p-2 ${activeColumn == 0 ? "col-span-2 border-l" : activeColumn == 1 ? "col-span-2 border-x" : "hidden"}`}
-  >
-    <ul>
-      {#if activeChildren.length == 0 && activeRoot?.content}
-        <li class={"px-2 leading-snug text-red-700 dark:text-red-400"}>
-          EMPTY
-        </li>
-      {:else if activeChildren.length}
-        {#each activeChildren as entry, index}
-          <BrowserItem {entry} isActive={index === activeIndexes[1]} />
+  <div class="w-full grid grid-cols-5 border flex-1 min-h-0">
+    <!-- Left Pane -->
+    <div
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "col-span-1" : ""}`}
+    >
+      <ul>
+        {#each files as entry, index}
+          <BrowserItem {entry} isActive={index === activeIndexes[0]} href />
         {/each}
-      {:else}
-        {@render entryDetails(activeRoot)}
-      {/if}
-    </ul>
-  </div>
-  <!-- Right Pane -->
-  <div
-    class={`p-2 ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "col-span-2" : ""}`}
-  >
-    <ul>
-      {@render entryDetails(activeChild)}
-    </ul>
+      </ul>
+    </div>
+    <!-- Middle Pane -->
+    <div
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-2 border-l" : activeColumn == 1 ? "col-span-2 border-x" : "hidden"}`}
+    >
+      <ul>
+        {#if activeChildren.length == 0 && activeRoot?.content}
+          <li class={"px-2 leading-snug text-red-700 dark:text-red-400"}>
+            EMPTY
+          </li>
+        {:else if activeChildren.length}
+          {#each activeChildren as entry, index}
+            <BrowserItem {entry} isActive={index === activeIndexes[1]} />
+          {/each}
+        {:else}
+          {@render entryDetails(activeRoot)}
+        {/if}
+      </ul>
+    </div>
+    <!-- Right Pane -->
+    <div
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "col-span-2" : ""}`}
+    >
+      <ul>
+        {@render entryDetails(activeChild)}
+      </ul>
+    </div>
   </div>
 </div>
+
 <dialog
   bind:this={dialog}
   class="fixed inset-0 m-auto border border-black/70 bg-white text-black backdrop:bg-black/5 dark:border-white/70 dark:bg-black dark:text-white dark:backdrop:bg-black/60"
