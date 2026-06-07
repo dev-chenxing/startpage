@@ -32,12 +32,12 @@
 >
   {#if href && entry.href}
     <a class="flex gap-1" href={entry.href}>
-      <span class="text-sm mr-0.5">{getIcon(entry)}</span>
+      <span class="text-2xl md:text-base mr-2 md:mr-0.5">{getIcon(entry)}</span>
       <span class="truncate">{entry.name}</span>
     </a>
   {:else}
     <span class="flex gap-1">
-      <span class="text-sm mr-0.5">{getIcon(entry)}</span>
+      <span class="text-2xl md:text-base mr-2 md:mr-0.5">{getIcon(entry)}</span>
       <span class="truncate">{entry.name}</span>
     </span>
   {/if}

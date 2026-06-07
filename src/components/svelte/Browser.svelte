@@ -228,17 +228,17 @@
 {/snippet}
 
 <div class="h-full flex flex-col w-full">
-  <div class="w-full">
+  <div class="w-full flex flex-col md:inline">
     <span class="text-black/70 dark:text-white/70">{prompt}</span>
     <span class="text-cyan-700 dark:text-cyan-300/90">
       ~/{activeRoot?.name}
     </span>
   </div>
-  <div class="w-full grid grid-cols-5 border flex-1 min-h-0">
+  <div class="w-full grid md:grid-cols-5 border flex-1 min-h-0">
     <!-- Left Pane -->
     <div
       bind:this={columns[0]}
-      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "col-span-1" : ""}`}
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "hidden md:flex md:col-span-1" : ""}`}
     >
       <ul>
         {#each files as entry, index}
@@ -249,7 +249,7 @@
     <!-- Middle Pane -->
     <div
       bind:this={columns[1]}
-      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-2 border-l" : activeColumn == 1 ? "col-span-2 border-x" : "hidden"}`}
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "hidden md:flex md:col-span-2 border-l" : activeColumn == 1 ? "md:col-span-2 md:border-x" : "hidden"}`}
     >
       <ul>
         {#if activeChildren.length == 0 && activeRoot?.content}
@@ -268,7 +268,7 @@
     <!-- Right Pane -->
     <div
       bind:this={columns[2]}
-      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "col-span-2" : ""}`}
+      class={`p-2 overflow-y-auto ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "hidden md:flex md:col-span-2" : ""}`}
     >
       <ul>
         {@render entryDetails(activeChild)}

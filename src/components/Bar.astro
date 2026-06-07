@@ -7,57 +7,70 @@ const pathname = new URL(Astro.request.url).pathname;
 const BASE = import.meta.env.BASE_URL || "/";
 const normalizedBase = BASE.endsWith("/") ? BASE.slice(0, -1) : BASE;
 const prefix = (h: string) => {
-    if (!h.startsWith("/")) return h;
-    if (normalizedBase === "" || normalizedBase === "/") return h;
-    return normalizedBase + h;
+  if (!h.startsWith("/")) return h;
+  if (normalizedBase === "" || normalizedBase === "/") return h;
+  return normalizedBase + h;
 };
 
 const normPath = (p: string) => (p.endsWith("/") ? p.slice(0, -1) : p) || "/";
 
 type Tab = {
-    href: string;
-    icon: string;
-    padding?: string;
-    isDir?: boolean;
+  href: string;
+  icon: string;
+  padding?: string;
+  isDir?: boolean;
 };
 
-const tabs: Tab[] = [{ href: prefix("/"), icon: " ", padding: "pl-[1px]" }];
+const tabs: Tab[] = [
+  { href: prefix("/"), icon: " ", padding: " md:pl-[1px]" },
+];
 
 const isHighlighted = function (tab: Tab) {
-    return tab.isDir ? pathname.includes(tab.href) : normPath(pathname) == normPath(tab.href);
+  return tab.isDir
+    ? pathname.includes(tab.href)
+    : normPath(pathname) == normPath(tab.href);
 };
 ---
 
-<nav class="flex w-full justify-between border border-black/70 bg-white/50 px-2 text-black transition-colors dark:border-white/70 dark:bg-black/50 dark:text-white">
-    <ul class="flex">
-        {
-            tabs.map((tab) => (
-                <li class={"flex w-[26px] justify-center " + (isHighlighted(tab) ? "bg-black text-white hover:text-white/90 dark:bg-white dark:text-black dark:hover:text-black/80" : "hover:text-black/70 dark:hover:text-white/70")}>
-                    <a
-                        class={"w-[18px] " + tab.padding}
-                        rel="prefetch"
-                        href={tab.href}
-                    >
-                        {tab.icon}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+<nav
+  class="flex w-full justify-between border border-black/70 bg-white/50 px-2 text-black transition-colors dark:border-white/70 dark:bg-black/50 dark:text-white text-2xl md:text-base"
+>
+  <ul class="flex">
+    {
+      tabs.map((tab) => (
+        <li
+          class={
+            "flex w-[32px] md:w-[26px] justify-center " +
+            (isHighlighted(tab)
+              ? "bg-black text-white hover:text-white/90 dark:bg-white dark:text-black dark:hover:text-black/80"
+              : "hover:text-black/70 dark:hover:text-white/70")
+          }
+        >
+          <a
+            class={"w-[22px] md:w-[16px] " + tab.padding}
+            rel="prefetch"
+            href={tab.href}
+          >
+            {tab.icon}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 
-    <div class="flex justify-end gap-2 text-end">
-        <Clock client:only="svelte" />
-        <ThemeToggle />
-    </div>
+  <div class="flex justify-end gap-2 text-end">
+    <Clock client:only="svelte" />
+    <ThemeToggle />
+  </div>
 
-    <script is:inline define:vars={{ tabs }}>
-        window.addEventListener("keydown", (event) => {
-            if (document.activeElement?.tagName == "INPUT") return;
-            const key = Number(event.key) - 1;
-            if (event.altKey && key in tabs) {
-                const href = tabs[key].href;
-                window.open(href, "_self");
-            }
-        });
-    </script>
+  <script is:inline define:vars={{ tabs }}>
+    window.addEventListener("keydown", (event) => {
+      if (document.activeElement?.tagName == "INPUT") return;
+      const key = Number(event.key) - 1;
+      if (event.altKey && key in tabs) {
+        const href = tabs[key].href;
+        window.open(href, "_self");
+      }
+    });
+  </script>
 </nav>
