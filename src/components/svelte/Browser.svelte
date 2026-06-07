@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tick } from "svelte";
   import BrowserItem from "./BrowserItem.svelte";
   import { mod } from "../lib/math.ts";
 
@@ -46,6 +47,7 @@
 
   let activeColumn = $state(0);
   let activeIndexes: Array<number> = $state([0, -1, -1]);
+  let columns: Array<HTMLDivElement | null> = [null, null, null];
   let activeRoot = $derived(files[activeIndexes[0]]);
   let activeChildren = $derived(activeRoot?.content ?? []);
   let activeChild = $derived(getEntryAt(1, activeIndexes[1]));
@@ -55,6 +57,83 @@
   let submitEntry = $derived(activeChild ?? activeRoot);
 
   let isCtrlDown = $state(false);
+
+  function getVisibleColumns() {
+    return activeColumn == 0 ? [0, 1] : [0, 1, 2];
+  }
+
+  function getListState(column: number) {
+    if (column == 0) {
+      return {
+        entries: files,
+        activeIndex: activeIndexes[0],
+      };
+    }
+
+    if (column == 1 && activeChildren.length > 0) {
+      return {
+        entries: activeChildren,
+        activeIndex: activeIndexes[1],
+      };
+    }
+
+    return {
+      entries: [] as Entry[],
+      activeIndex: -1,
+    };
+  }
+
+  // Calculate the scrollTop value to scroll the container so that the item is visible and anchored at a specific offset
+  function getScrollTopToScroll(
+    container: HTMLDivElement,
+    item: HTMLLIElement,
+    totalEntries: number,
+  ) {
+    const anchorOffset =
+      totalEntries > 12
+        ? container.clientHeight - item.offsetHeight * 6
+        : container.clientHeight / 2 - item.offsetHeight / 2;
+    const maxScrollTop = Math.max(
+      container.scrollHeight - container.clientHeight,
+      0,
+    );
+    return Math.min(Math.max(item.offsetTop - anchorOffset, 0), maxScrollTop);
+  }
+
+  // Scroll the active item in each visible column into view, anchoring it at a specific offset from the top of the container
+  async function scrollActiveItemIntoView() {
+    await tick();
+
+    for (const column of getVisibleColumns()) {
+      const container = columns[column];
+      const { entries, activeIndex } = getListState(column);
+
+      if (!container || activeIndex < 0 || entries.length == 0) continue;
+
+      const items = Array.from(container.querySelectorAll("ul > li"));
+      const item = items[activeIndex];
+      if (!(item instanceof HTMLLIElement)) continue;
+
+      const targetScrollTop = getScrollTopToScroll(
+        container,
+        item,
+        items.length,
+      );
+      if (Math.abs(container.scrollTop - targetScrollTop) < 1) continue;
+
+      container.scrollTop = targetScrollTop;
+    }
+  }
+
+  $effect(() => {
+    activeColumn;
+    activeIndexes[0];
+    activeIndexes[1];
+    files.length;
+    activeChildren.length;
+
+    void scrollActiveItemIntoView();
+  });
 
   function openLink(href: string | undefined) {
     if (isCtrlDown) window.open(href, "_blank");
@@ -158,6 +237,7 @@
   <div class="w-full grid grid-cols-5 border flex-1 min-h-0">
     <!-- Left Pane -->
     <div
+      bind:this={columns[0]}
       class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "col-span-1" : ""}`}
     >
       <ul>
@@ -168,6 +248,7 @@
     </div>
     <!-- Middle Pane -->
     <div
+      bind:this={columns[1]}
       class={`p-2 overflow-y-auto ${activeColumn == 0 ? "col-span-2 border-l" : activeColumn == 1 ? "col-span-2 border-x" : "hidden"}`}
     >
       <ul>
@@ -186,6 +267,7 @@
     </div>
     <!-- Right Pane -->
     <div
+      bind:this={columns[2]}
       class={`p-2 overflow-y-auto ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "col-span-2" : ""}`}
     >
       <ul>
