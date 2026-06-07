@@ -154,17 +154,21 @@
     ~/{activeRoot?.name}
   </span>
 </div>
-<div
-  class="h-full w-full grid grid-cols-[minmax(140px,max-content)_minmax(140px,max-content)_1fr] border"
->
-  <div class="p-2 lf-pane-left">
+<div class="h-full w-full grid grid-cols-5 border">
+  <!-- Left Pane -->
+  <div
+    class={`p-2 ${activeColumn == 0 ? "col-span-3" : activeColumn == 1 ? "col-span-1" : ""}`}
+  >
     <ul>
       {#each files as entry, index}
         <BrowserItem {entry} isActive={index === activeIndexes[0]} href />
       {/each}
     </ul>
   </div>
-  <div class="p-2 border-x">
+  <!-- Middle Pane -->
+  <div
+    class={`p-2 ${activeColumn == 0 ? "col-span-2 border-l" : activeColumn == 1 ? "col-span-2 border-x" : "hidden"}`}
+  >
     <ul>
       {#if activeChildren.length == 0 && activeRoot?.content}
         <li class={"px-2 leading-snug text-red-700 dark:text-red-400"}>
@@ -179,7 +183,10 @@
       {/if}
     </ul>
   </div>
-  <div class="p-2">
+  <!-- Right Pane -->
+  <div
+    class={`p-2 ${activeColumn == 0 ? "hidden" : activeColumn == 1 ? "col-span-2" : ""}`}
+  >
     <ul>
       {@render entryDetails(activeChild)}
     </ul>
