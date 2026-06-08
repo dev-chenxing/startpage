@@ -15,19 +15,33 @@ type Entry = {
 
 const files: Entry[] = [
   // Alphabetical order
-  { name: "126网易免费邮", icon: " ", href: "https://mail.126.com/" },
-  {
-    name: "adonisjs.com",
-    icon: " ",
-    href: "https://docs.adonisjs.com/",
-  },
   {
     name: "archlinux.org",
     icon: "󰣇 ",
     href: "https://archlinux.org/packages/",
-    search: "https://archlinux.org/packages/?q=",
-    description: "Press 󰜵 key to search packages",
-    dialog: true,
+    content: [
+      {
+        name: "Packages",
+        icon: "󰏔 ",
+        dialog: true,
+        search: "https://archlinux.org/packages/?q=",
+        description: "Press 󰜵 key to search packages",
+      },
+      {
+        name: "ArchWiki",
+        icon: "󰣇 ",
+        dialog: true,
+        search: "https://wiki.archlinux.org/index.php?search=",
+        description: "Press 󰜵 key to search ArchWiki",
+      },
+      {
+        name: "AUR",
+        icon: " ",
+        dialog: true,
+        search: "https://aur.archlinux.org/packages/?K=",
+        description: "Press 󰜵 key to search AUR",
+      },
+    ],
   },
   {
     name: "astro.build",
@@ -60,15 +74,44 @@ const files: Entry[] = [
     ],
   },
   {
-    name: "codepen.io",
-    icon: " ",
-    href: "https://codepen.io/",
-    search: "https://codepen.io/search/pens?q=",
-    description: "Press 󰜵 key to search pens",
+    name: "bing",
+    icon: "󰂤 ",
+    href: "https://www.bing.com/",
     dialog: true,
+    search: "https://www.bing.com/search?q=",
+    description: "Press 󰜵 key to search with Bing",
   },
-  { name: "dev.to", icon: " ", href: "https://dev.to/" },
   { name: "deepseek.com", icon: "󰻞 ", href: "https://chat.deepseek.com/" },
+  {
+    name: "豆包",
+    shortcut: "d",
+    icon: "󱁶 ",
+    href: "https://doubao.com/chat",
+  },
+  {
+    name: "gitee",
+    icon: " ",
+    href: "https://gitee.com/",
+    content: [
+      {
+        name: "dashboard",
+        icon: "󰕮 ",
+        href: "https://gitee.com/dashboard",
+      },
+      {
+        name: "repositories",
+        icon: " ",
+        href: "https://gitee.com/dashboard/projects",
+      },
+      {
+        name: "search repositories",
+        icon: " ",
+        dialog: true,
+        search: "https://so.gitee.com/?q=",
+        description: "Press 󰜵 key to search repositories",
+      },
+    ],
+  },
   {
     name: "github.com",
     icon: " ",
@@ -94,17 +137,29 @@ const files: Entry[] = [
       },
       {
         name: "search repositories",
-        icon: " ",
+        icon: " ",
         dialog: true,
         description: "Press 󰜵 key to search repositories",
         search: "https://github.com/search?type=repository&q=",
       },
     ],
   },
-  { name: "hostinger.com", icon: " ", href: "https://hpanel.hostinger.com/" },
+  {
+    name: "google",
+    icon: " ",
+    href: "https://www.google.com/",
+    dialog: true,
+    search: "https://www.google.com/search?q=",
+  },
+  {
+    name: "广州市人民政府",
+    shortcut: "g",
+    icon: " ",
+    href: "https://www.gz.gov.cn/",
+  },
   {
     name: "makefrontendshitagain",
-    icon: " ",
+    icon: "󰇷 ",
     href: "https://makefrontendshitagain.party/",
   },
   {
@@ -113,28 +168,16 @@ const files: Entry[] = [
     href: "https://www.nerdfonts.com/cheat-sheet",
   },
   {
-    name: "npmjs.com",
-    icon: " ",
-    href: "https://www.npmjs.com/",
-    search: "https://www.npmjs.com/search?q=",
+    name: "npmx.dev",
+    icon: "./",
+    href: "https://www.npmx.dev/",
+    search: "https://www.npmx.dev/search?q=",
     description: "Press 󰜵 key to search packages",
     dialog: true,
   },
   {
-    name: "nuxt",
-    icon: "󱄆 ",
-    href: "https://nuxt.com/docs/getting-started/introduction",
-  },
-  {
-    name: "searxng",
-    icon: " ",
-    href: "http://chenxing.io:8080/",
-    search: "http://chenxing.io:8080/search?q=",
-    dialog: true,
-    description: "Press 󰜵 key to search",
-  },
-  {
     name: "shadcn/ui",
+    icon: "󰿠 ",
     href: "https://ui.shadcn.com/docs/components/",
   },
   {
@@ -160,6 +203,42 @@ const files: Entry[] = [
     name: "vue.js",
     icon: " ",
     href: "https://vuejs.org/guide/introduction.html",
+  },
+  {
+    name: "微信文件传输助手",
+    shortcut: "w",
+    icon: " ",
+    href: "https://filehelper.weixin.qq.com/",
+  },
+  {
+    name: "wikipedia",
+    icon: "󰖬 ",
+    href: "https://wikipedia.org/",
+    content: [
+      {
+        name: "前往首页",
+        icon: "󰖬 ",
+        href: "https://zh.wikipedia.org/wiki/Wikipedia:首页",
+      },
+      {
+        name: "搜寻维基百科",
+        icon: "󰜵 ",
+        dialog: true,
+        search: "https://zh.wikipedia.org/w/index.php?search=",
+        description: "Press 󰜵 key to 搜寻维基百科",
+      },
+      {
+        name: "Main Page",
+        icon: "󰖬 ",
+        href: "https://en.wikipedia.org/wiki/Main_Page",
+      },
+      {
+        name: "Search",
+        icon: "󰜵 ",
+        dialog: true,
+        search: "https://en.wikipedia.org/w/index.php?search=",
+      },
+    ],
   },
 ];
 ---
