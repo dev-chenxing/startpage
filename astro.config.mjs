@@ -13,7 +13,13 @@ export default defineConfig({
   base: "/",
   integrations: [mdx(), svelte()],
   vite: {
+    build: {
+      assetsInlineLimit: 12 * 1024, // 12KB
+    },
     plugins: [tailwindcss()],
+  },
+  build: {
+    inlineStylesheets: "auto",
   },
   fonts: [
     {
