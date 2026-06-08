@@ -1,25 +1,26 @@
 {
-    "name": "startpage-astro",
-    "type": "module",
-    "version": "1.0.0",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "svelte-check && astro check && astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "@astrojs/check": "^0.9.9",
-        "@astrojs/mdx": "^6.0.1",
-        "@astrojs/svelte": "^8.1.2",
-        "@tailwindcss/vite": "^4.3.0",
-        "astro": "^6.4.3",
-        "svelte": "^5.56.1",
-        "tailwindcss": "^4.3.0",
-        "typescript": "^6.0.3"
-    },
-    "devDependencies": {
-        "svelte-check": "^4.5.0"
-    }
+  "name": "startpage-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "svelte-check && astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/mdx": "^6.0.1",
+    "@astrojs/svelte": "^8.1.2",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.3",
+    "svelte": "^5.56.1",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "svelte-check": "^4.5.0"
+  },
+  "packageManager": "pnpm@11.5.2"
 }
