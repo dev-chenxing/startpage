@@ -15,18 +15,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  server: {
-    headers: {
-      // Cache files for 1 year (immutable = never expires)
-      "**/*.{js,css,woff2}": {
-        "Cache-Control": "max-age=31536000, immutable",
-      },
-      // Cache HTML for 10 minutes
-      "**/*.html": {
-        "Cache-Control": "max-age=600",
-      },
-    },
-  },
   fonts: [
     {
       provider: fontProviders.local(),
