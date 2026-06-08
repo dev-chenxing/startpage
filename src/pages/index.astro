@@ -138,6 +138,11 @@ const files: Entry[] = [
     href: "https://ui.shadcn.com/docs/components/",
   },
   {
+    name: "svelte",
+    icon: " ",
+    href: "https://svelte.dev/docs",
+  },
+  {
     name: "tailwindcss",
     icon: "󱏿 ",
     href: "https://tailwindcss.com/docs/",
@@ -160,5 +165,5 @@ const files: Entry[] = [
 ---
 
 <Layout title="New tab">
-  <Browser prompt="陈刑@chenxing.io" files={files} client:only="svelte" />
+  <Browser prompt="陈刑@chenxing.dev" files={files} client:only="svelte" />
 </Layout>
