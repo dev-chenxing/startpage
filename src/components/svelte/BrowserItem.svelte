@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { MediaQuery } from "svelte/reactivity";
-
   type EntryLike = {
     name: string;
     icon?: string;
@@ -15,8 +13,6 @@
   }
 
   let { entry, isActive, href = false }: Props = $props();
-
-  const large = new MediaQuery("min-width: 800px");
 
   function getIcon(currentEntry: EntryLike) {
     return (
@@ -34,7 +30,7 @@
       ? "bg-black text-white dark:bg-white dark:text-black rounded-lg"
       : "")}
 >
-  {#if large.current && href && entry.href}
+  {#if href && entry.href}
     <a class="flex gap-1" href={entry.href}>
       <span class="text-2xl md:text-base mr-2 md:mr-0.5">{getIcon(entry)}</span>
       <span class="truncate">{entry.name}</span>
