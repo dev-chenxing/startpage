@@ -283,9 +283,9 @@
   onclick={onDialogClick}
 >
   <form class="py-1 px-2" action="javascript:void(0);" autocomplete="off">
-    <p>
+    <p class="inline-flex">
       <label for="input"> {submitEntry?.name}</label>
-      <input id="input" class="ml-1 w-96" bind:value={query} />
+      <input id="input" class="ml-1 lg:w-96" bind:value={query} />
       <input
         type="submit"
         value="󰘌"
