@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import { SITE_URL } from "./src/consts/site.ts";
 
 import mdx from "@astrojs/mdx";
 
@@ -9,7 +10,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://chenxing.dev",
+  site: SITE_URL,
   base: "/",
   integrations: [mdx(), svelte()],
   vite: {
