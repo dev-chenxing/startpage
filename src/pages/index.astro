@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Browser from "../components/svelte/Browser.svelte";
+import { SITE_AUTHOR, SITE_DOMAIN, SITE_TITLE } from "../consts/site";
 
 type Entry = {
   name: string;
@@ -158,6 +159,11 @@ const files: Entry[] = [
     href: "https://www.gz.gov.cn/",
   },
   {
+    name: "Icônes",
+    icon: "Ô ",
+    href: "https://icones.js.org/",
+  },
+  {
     name: "makefrontendshitagain",
     icon: "󰇷 ",
     href: "https://makefrontendshitagain.party/",
@@ -243,6 +249,6 @@ const files: Entry[] = [
 ];
 ---
 
-<Layout title="New tab">
-  <Browser prompt="陈刑@chenxing.dev" files={files} client:idle />
+<Layout title={SITE_TITLE}>
+  <Browser prompt={`${SITE_AUTHOR}@${SITE_DOMAIN}`} files={files} client:idle />
 </Layout>

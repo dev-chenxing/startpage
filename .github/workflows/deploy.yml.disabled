@@ -1,0 +1,70 @@
+name: Deploy to Remote Server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      REMOTE_HOST: ${{ secrets.SSH_HOST }}
+      REMOTE_PORT: ${{ secrets.SSH_PORT || '22' }}
+      REMOTE_USER: ${{ secrets.SSH_USER }}
+      REMOTE_PATH: ${{ secrets.SSH_TARGET_DIR }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Prepare remote directory
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ env.REMOTE_HOST }}
+          username: ${{ env.REMOTE_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ env.REMOTE_PORT }}
+          script: |
+            mkdir -p "$REMOTE_PATH"
+            rm -rf "$REMOTE_PATH"/*
+
+      - name: Upload dist to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ env.REMOTE_HOST }}
+          username: ${{ env.REMOTE_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ env.REMOTE_PORT }}
+          source: "dist/*"
+          target: ${{ env.REMOTE_PATH }}
