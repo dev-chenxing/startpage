@@ -9,7 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://chenxing.dev",
+  site: "https://newtab.chenxing.fyi",
   base: "/",
   integrations: [mdx(), svelte()],
   vite: {
